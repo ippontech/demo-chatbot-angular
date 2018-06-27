@@ -12418,3 +12418,252 @@ Members {size:1, ver:1} [
 2018-06-27 10:27:28.215 DEBUG 67564 --- [XNIO-2 task-47] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.service.UserService.getUserWithAuthorities() with result = Optional[User{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated='true', langKey='en', activationKey='null'}]
 2018-06-27 10:27:28.228 DEBUG 67564 --- [XNIO-2 task-47] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.AccountResource.getAccount() with result = UserDTO{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated=true, langKey='en', createdBy=system, createdDate=2018-06-25T20:10:45.833Z, lastModifiedBy='system', lastModifiedDate=null, authorities=[ROLE_USER, ROLE_ADMIN]}
 2018-06-27 10:32:05.962  INFO 67564 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-06-27 14:12:39.168  INFO 2317 --- [restartedMain] org.jhipster.GatewayApp                  : The following profiles are active: swagger,dev
+2018-06-27 14:12:44.114 DEBUG 2317 --- [restartedMain] org.jhipster.config.AsyncConfiguration   : Creating Async Task Executor
+2018-06-27 14:12:45.861 DEBUG 2317 --- [restartedMain] o.jhipster.config.MetricsConfiguration   : Registering JVM gauges
+2018-06-27 14:12:45.991 DEBUG 2317 --- [restartedMain] o.jhipster.config.MetricsConfiguration   : Monitoring the datasource
+2018-06-27 14:12:45.992 DEBUG 2317 --- [restartedMain] o.jhipster.config.MetricsConfiguration   : Initializing Metrics JMX reporting
+2018-06-27 14:12:47.459 DEBUG 2317 --- [restartedMain] org.jhipster.config.CacheConfiguration   : Configuring Hazelcast
+2018-06-27 14:12:47.507 DEBUG 2317 --- [restartedMain] org.jhipster.config.CacheConfiguration   : Configuring Hazelcast clustering for instanceId: gateway
+2018-06-27 14:12:47.510 DEBUG 2317 --- [restartedMain] org.jhipster.config.CacheConfiguration   : Application is running with the "dev" profile, Hazelcast cluster will only work with localhost instances
+2018-06-27 14:12:47.682  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2018-06-27 14:12:48.036  INFO 2317 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2018-06-27 14:12:48.036  INFO 2317 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2018-06-27 14:12:48.345  INFO 2317 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2018-06-27 14:12:48.346  INFO 2317 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2018-06-27 14:12:48.732  INFO 2317 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-06-27 14:12:48.778  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2018-06-27 14:12:48.778  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2018-06-27 14:12:48.778  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2018-06-27 14:12:48.778  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2018-06-27 14:12:48.779  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2018-06-27 14:12:48.779  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2018-06-27 14:12:48.779  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2018-06-27 14:12:49.176  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2018-06-27 14:12:49.179  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 5
+2018-06-27 14:12:49.182  INFO 2317 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 12
+2018-06-27 14:12:49.186  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1530123169186 with initial instances count: 1
+2018-06-27 14:12:49.400  INFO 2317 --- [restartedMain] com.hazelcast.instance.AddressPicker     : [LOCAL] [dev] [3.9.1] Picked [127.0.0.1]:13781, using socket ServerSocket[addr=/0:0:0:0:0:0:0:0,localport=13781], bind any local is true
+2018-06-27 14:12:49.431  INFO 2317 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13781 [dev] [3.9.1] Hazelcast 3.9.1 (20171130 - feca534) starting at [127.0.0.1]:13781
+2018-06-27 14:12:49.431  INFO 2317 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13781 [dev] [3.9.1] Copyright (c) 2008-2017, Hazelcast, Inc. All Rights Reserved.
+2018-06-27 14:12:49.431  INFO 2317 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13781 [dev] [3.9.1] Configured Hazelcast Serialization version: 1
+2018-06-27 14:12:49.856  INFO 2317 --- [restartedMain] c.h.s.i.o.impl.BackpressureRegulator     : [127.0.0.1]:13781 [dev] [3.9.1] Backpressure is disabled
+2018-06-27 14:12:50.691  INFO 2317 --- [restartedMain] com.hazelcast.instance.Node              : [127.0.0.1]:13781 [dev] [3.9.1] Creating TcpIpJoiner
+2018-06-27 14:12:51.459  INFO 2317 --- [restartedMain] c.h.s.i.o.impl.OperationExecutorImpl     : [127.0.0.1]:13781 [dev] [3.9.1] Starting 8 partition threads and 5 generic threads (1 dedicated for priority tasks)
+2018-06-27 14:12:51.462  INFO 2317 --- [restartedMain] c.h.internal.diagnostics.Diagnostics     : [127.0.0.1]:13781 [dev] [3.9.1] Diagnostics disabled. To enable add -Dhazelcast.diagnostics.enabled=true to the JVM arguments.
+2018-06-27 14:12:51.474  INFO 2317 --- [restartedMain] com.hazelcast.core.LifecycleService      : [127.0.0.1]:13781 [dev] [3.9.1] [127.0.0.1]:13781 is STARTING
+2018-06-27 14:12:51.517  INFO 2317 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13781 [dev] [3.9.1] Cluster version set to 3.9
+2018-06-27 14:12:51.518  INFO 2317 --- [restartedMain] c.h.internal.cluster.ClusterService      : [127.0.0.1]:13781 [dev] [3.9.1] 
+
+Members {size:1, ver:1} [
+	Member [127.0.0.1]:13781 - 3bc2b7ed-a1fd-4f46-a3ff-ac4113709de9 this
+]
+
+2018-06-27 14:12:51.570  INFO 2317 --- [restartedMain] com.hazelcast.core.LifecycleService      : [127.0.0.1]:13781 [dev] [3.9.1] [127.0.0.1]:13781 is STARTED
+2018-06-27 14:12:53.299 DEBUG 2317 --- [restartedMain] org.jhipster.config.WebConfigurer        : Registering CORS filter
+2018-06-27 14:12:53.610  INFO 2317 --- [restartedMain] org.jhipster.config.WebConfigurer        : Web application configuration, using profiles: swagger
+2018-06-27 14:12:53.610 DEBUG 2317 --- [restartedMain] org.jhipster.config.WebConfigurer        : Initializing Metrics registries
+2018-06-27 14:12:53.620 DEBUG 2317 --- [restartedMain] org.jhipster.config.WebConfigurer        : Registering Metrics Filter
+2018-06-27 14:12:53.621 DEBUG 2317 --- [restartedMain] org.jhipster.config.WebConfigurer        : Registering Metrics Servlet
+2018-06-27 14:12:53.629 DEBUG 2317 --- [restartedMain] org.jhipster.config.WebConfigurer        : Initialize H2 console
+2018-06-27 14:12:53.631  INFO 2317 --- [restartedMain] org.jhipster.config.WebConfigurer        : Web application fully configured
+2018-06-27 14:12:54.089 DEBUG 2317 --- [restartedMain] o.jhipster.config.DatabaseConfiguration  : Configuring Liquibase
+2018-06-27 14:12:54.107  WARN 2317 --- [gateway-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Starting Liquibase asynchronously, your database might not be ready at startup!
+2018-06-27 14:12:54.396  INFO 2317 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:7c5191a84384dd1984f8ad541c750fc7 - Re-registering apps/GATEWAY
+2018-06-27 14:12:54.397  INFO 2317 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:7c5191a84384dd1984f8ad541c750fc7: registering service...
+2018-06-27 14:12:54.608  INFO 2317 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:7c5191a84384dd1984f8ad541c750fc7 - registration status: 204
+2018-06-27 14:12:59.091 DEBUG 2317 --- [gateway-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Liquibase has updated your database in 4981 ms
+2018-06-27 14:13:10.240  WARN 2317 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-06-27 14:13:11.480 DEBUG 2317 --- [restartedMain] org.jhipster.config.CacheConfiguration   : Starting HazelcastCacheManager
+2018-06-27 14:13:25.213  WARN 2317 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-06-27 14:13:27.391 DEBUG 2317 --- [restartedMain] i.g.j.c.apidoc.SwaggerConfiguration      : Starting Swagger
+2018-06-27 14:13:27.581 DEBUG 2317 --- [restartedMain] i.g.j.c.apidoc.SwaggerConfiguration      : Started Swagger in 188 ms
+2018-06-27 14:13:29.192  INFO 2317 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:7c5191a84384dd1984f8ad541c750fc7: registering service...
+2018-06-27 14:13:29.441  INFO 2317 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:7c5191a84384dd1984f8ad541c750fc7 - registration status: 204
+2018-06-27 14:13:33.297  WARN 2317 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with key 'zuulEndpoint' has been registered as an MBean but has no exposed attributes or operations
+2018-06-27 14:13:34.409  INFO 2317 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1530123214409, current=UP, previous=STARTING]
+2018-06-27 14:13:34.413  INFO 2317 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:7c5191a84384dd1984f8ad541c750fc7: registering service...
+2018-06-27 14:13:34.608  INFO 2317 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:7c5191a84384dd1984f8ad541c750fc7 - registration status: 204
+2018-06-27 14:13:36.513  INFO 2317 --- [restartedMain] org.jhipster.GatewayApp                  : Started GatewayApp in 62.329 seconds (JVM running for 63.451)
+2018-06-27 14:13:36.515  INFO 2317 --- [restartedMain] org.jhipster.GatewayApp                  : 
+----------------------------------------------------------
+	Application 'gateway' is running! Access URLs:
+	Local: 		http://localhost:8080
+	External: 	http://192.168.86.51:8080
+	Profile(s): 	[swagger, dev]
+----------------------------------------------------------
+2018-06-27 14:13:36.516  INFO 2317 --- [restartedMain] org.jhipster.GatewayApp                  : 
+----------------------------------------------------------
+	Config Server: 	Connected to the JHipster Registry config server, using https://github.com/jhipster/jhipster-registry-sample-config !
+----------------------------------------------------------
+2018-06-27 14:16:19.137  WARN 2317 --- [Thread-1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1530123379137, current=DOWN, previous=UP]
+2018-06-27 14:16:19.159  INFO 2317 --- [Thread-1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2018-06-27 14:16:19.175  INFO 2317 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:7c5191a84384dd1984f8ad541c750fc7: registering service...
+2018-06-27 14:16:19.218  INFO 2317 --- [Thread-1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2018-06-27 14:16:19.753  INFO 2317 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:7c5191a84384dd1984f8ad541c750fc7 - registration status: 204
+2018-06-27 14:16:19.872  INFO 2317 --- [Thread-1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:7c5191a84384dd1984f8ad541c750fc7 - deregister  status: 200
+2018-06-27 14:16:20.377  INFO 2317 --- [Thread-1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2018-06-27 14:16:21.766  WARN 2317 --- [Thread-1] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-06-27 14:16:23.122  INFO 2317 --- [Thread-1] org.jhipster.config.CacheConfiguration   : Closing Cache Manager
+2018-06-27 14:27:21.583  INFO 3810 --- [restartedMain] org.jhipster.GatewayApp                  : The following profiles are active: swagger,dev
+2018-06-27 14:27:25.517 DEBUG 3810 --- [restartedMain] org.jhipster.config.AsyncConfiguration   : Creating Async Task Executor
+2018-06-27 14:27:26.840 DEBUG 3810 --- [restartedMain] o.jhipster.config.MetricsConfiguration   : Registering JVM gauges
+2018-06-27 14:27:26.962 DEBUG 3810 --- [restartedMain] o.jhipster.config.MetricsConfiguration   : Monitoring the datasource
+2018-06-27 14:27:26.963 DEBUG 3810 --- [restartedMain] o.jhipster.config.MetricsConfiguration   : Initializing Metrics JMX reporting
+2018-06-27 14:27:28.675 DEBUG 3810 --- [restartedMain] org.jhipster.config.CacheConfiguration   : Configuring Hazelcast
+2018-06-27 14:27:28.743 DEBUG 3810 --- [restartedMain] org.jhipster.config.CacheConfiguration   : Configuring Hazelcast clustering for instanceId: gateway
+2018-06-27 14:27:28.746 DEBUG 3810 --- [restartedMain] org.jhipster.config.CacheConfiguration   : Application is running with the "dev" profile, Hazelcast cluster will only work with localhost instances
+2018-06-27 14:27:28.952  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2018-06-27 14:27:29.247  INFO 3810 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2018-06-27 14:27:29.248  INFO 3810 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2018-06-27 14:27:29.450  INFO 3810 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2018-06-27 14:27:29.450  INFO 3810 --- [restartedMain] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2018-06-27 14:27:29.880  INFO 3810 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-06-27 14:27:29.934  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2018-06-27 14:27:29.934  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2018-06-27 14:27:29.934  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2018-06-27 14:27:29.935  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2018-06-27 14:27:29.935  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2018-06-27 14:27:29.935  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2018-06-27 14:27:29.936  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2018-06-27 14:27:30.322  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2018-06-27 14:27:30.324  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 5
+2018-06-27 14:27:30.327  INFO 3810 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 12
+2018-06-27 14:27:30.331  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1530124050331 with initial instances count: 0
+2018-06-27 14:27:30.530  INFO 3810 --- [restartedMain] com.hazelcast.instance.AddressPicker     : [LOCAL] [dev] [3.9.1] Picked [127.0.0.1]:13781, using socket ServerSocket[addr=/0:0:0:0:0:0:0:0,localport=13781], bind any local is true
+2018-06-27 14:27:30.563  INFO 3810 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13781 [dev] [3.9.1] Hazelcast 3.9.1 (20171130 - feca534) starting at [127.0.0.1]:13781
+2018-06-27 14:27:30.564  INFO 3810 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13781 [dev] [3.9.1] Copyright (c) 2008-2017, Hazelcast, Inc. All Rights Reserved.
+2018-06-27 14:27:30.564  INFO 3810 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13781 [dev] [3.9.1] Configured Hazelcast Serialization version: 1
+2018-06-27 14:27:31.034  INFO 3810 --- [restartedMain] c.h.s.i.o.impl.BackpressureRegulator     : [127.0.0.1]:13781 [dev] [3.9.1] Backpressure is disabled
+2018-06-27 14:27:31.788  INFO 3810 --- [restartedMain] com.hazelcast.instance.Node              : [127.0.0.1]:13781 [dev] [3.9.1] Creating TcpIpJoiner
+2018-06-27 14:27:32.430  INFO 3810 --- [restartedMain] c.h.s.i.o.impl.OperationExecutorImpl     : [127.0.0.1]:13781 [dev] [3.9.1] Starting 8 partition threads and 5 generic threads (1 dedicated for priority tasks)
+2018-06-27 14:27:32.433  INFO 3810 --- [restartedMain] c.h.internal.diagnostics.Diagnostics     : [127.0.0.1]:13781 [dev] [3.9.1] Diagnostics disabled. To enable add -Dhazelcast.diagnostics.enabled=true to the JVM arguments.
+2018-06-27 14:27:32.439  INFO 3810 --- [restartedMain] com.hazelcast.core.LifecycleService      : [127.0.0.1]:13781 [dev] [3.9.1] [127.0.0.1]:13781 is STARTING
+2018-06-27 14:27:32.470  INFO 3810 --- [restartedMain] com.hazelcast.system                     : [127.0.0.1]:13781 [dev] [3.9.1] Cluster version set to 3.9
+2018-06-27 14:27:32.471  INFO 3810 --- [restartedMain] c.h.internal.cluster.ClusterService      : [127.0.0.1]:13781 [dev] [3.9.1] 
+
+Members {size:1, ver:1} [
+	Member [127.0.0.1]:13781 - 477b3314-f27c-4832-8cd8-6b19808a7dc8 this
+]
+
+2018-06-27 14:27:32.511  INFO 3810 --- [restartedMain] com.hazelcast.core.LifecycleService      : [127.0.0.1]:13781 [dev] [3.9.1] [127.0.0.1]:13781 is STARTED
+2018-06-27 14:27:33.555 DEBUG 3810 --- [restartedMain] org.jhipster.config.WebConfigurer        : Registering CORS filter
+2018-06-27 14:27:33.779  INFO 3810 --- [restartedMain] org.jhipster.config.WebConfigurer        : Web application configuration, using profiles: swagger
+2018-06-27 14:27:33.780 DEBUG 3810 --- [restartedMain] org.jhipster.config.WebConfigurer        : Initializing Metrics registries
+2018-06-27 14:27:33.787 DEBUG 3810 --- [restartedMain] org.jhipster.config.WebConfigurer        : Registering Metrics Filter
+2018-06-27 14:27:33.787 DEBUG 3810 --- [restartedMain] org.jhipster.config.WebConfigurer        : Registering Metrics Servlet
+2018-06-27 14:27:33.792 DEBUG 3810 --- [restartedMain] org.jhipster.config.WebConfigurer        : Initialize H2 console
+2018-06-27 14:27:33.793  INFO 3810 --- [restartedMain] org.jhipster.config.WebConfigurer        : Web application fully configured
+2018-06-27 14:27:34.167 DEBUG 3810 --- [restartedMain] o.jhipster.config.DatabaseConfiguration  : Configuring Liquibase
+2018-06-27 14:27:34.181  WARN 3810 --- [gateway-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Starting Liquibase asynchronously, your database might not be ready at startup!
+2018-06-27 14:27:35.560  INFO 3810 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:1a04dd083afe30ed5c30a4fd0dfdfcfb - Re-registering apps/GATEWAY
+2018-06-27 14:27:35.560  INFO 3810 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:1a04dd083afe30ed5c30a4fd0dfdfcfb: registering service...
+2018-06-27 14:27:36.150  INFO 3810 --- [DiscoveryClient-HeartbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:1a04dd083afe30ed5c30a4fd0dfdfcfb - registration status: 204
+2018-06-27 14:27:36.752 DEBUG 3810 --- [gateway-Executor-1] i.g.j.c.liquibase.AsyncSpringLiquibase   : Liquibase has updated your database in 2569 ms
+2018-06-27 14:27:40.326  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2018-06-27 14:27:40.326  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2018-06-27 14:27:40.326  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2018-06-27 14:27:40.327  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2018-06-27 14:27:40.327  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2018-06-27 14:27:40.327  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2018-06-27 14:27:40.327  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2018-06-27 14:27:40.509  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2018-06-27 14:27:40.718  WARN 3810 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-06-27 14:27:41.167 DEBUG 3810 --- [restartedMain] org.jhipster.config.CacheConfiguration   : Starting HazelcastCacheManager
+2018-06-27 14:27:45.439  WARN 3810 --- [restartedMain] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2018-06-27 14:27:46.162 DEBUG 3810 --- [restartedMain] i.g.j.c.apidoc.SwaggerConfiguration      : Starting Swagger
+2018-06-27 14:27:46.173 DEBUG 3810 --- [restartedMain] i.g.j.c.apidoc.SwaggerConfiguration      : Started Swagger in 10 ms
+2018-06-27 14:27:47.944  WARN 3810 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with key 'zuulEndpoint' has been registered as an MBean but has no exposed attributes or operations
+2018-06-27 14:27:48.558  INFO 3810 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1530124068558, current=UP, previous=STARTING]
+2018-06-27 14:27:49.223  INFO 3810 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:1a04dd083afe30ed5c30a4fd0dfdfcfb: registering service...
+2018-06-27 14:27:49.425  INFO 3810 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GATEWAY/gateway:1a04dd083afe30ed5c30a4fd0dfdfcfb - registration status: 204
+2018-06-27 14:27:49.700  INFO 3810 --- [restartedMain] org.jhipster.GatewayApp                  : Started GatewayApp in 33.743 seconds (JVM running for 34.881)
+2018-06-27 14:27:49.702  INFO 3810 --- [restartedMain] org.jhipster.GatewayApp                  : 
+----------------------------------------------------------
+	Application 'gateway' is running! Access URLs:
+	Local: 		http://localhost:8080
+	External: 	http://192.168.86.51:8080
+	Profile(s): 	[swagger, dev]
+----------------------------------------------------------
+2018-06-27 14:27:49.703  INFO 3810 --- [restartedMain] org.jhipster.GatewayApp                  : 
+----------------------------------------------------------
+	Config Server: 	Connected to the JHipster Registry config server, using https://github.com/jhipster/jhipster-registry-sample-config !
+----------------------------------------------------------
+2018-06-27 14:27:50.678  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2018-06-27 14:27:50.679  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2018-06-27 14:27:50.679  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2018-06-27 14:27:50.680  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2018-06-27 14:27:50.680  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2018-06-27 14:27:50.681  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2018-06-27 14:27:50.681  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2018-06-27 14:27:50.817  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2018-06-27 14:27:55.415  WARN 3810 --- [XNIO-2 task-1] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
+2018-06-27 14:27:59.802 DEBUG 3810 --- [XNIO-2 task-7] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.web.rest.ProfileInfoResource.getActiveProfiles() with argument[s] = []
+2018-06-27 14:27:59.818 DEBUG 3810 --- [XNIO-2 task-7] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.ProfileInfoResource.getActiveProfiles() with result = org.jhipster.web.rest.ProfileInfoResource$ProfileInfoVM@1389fa00
+2018-06-27 14:27:59.873 DEBUG 3810 --- [XNIO-2 task-8] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.repository.CustomAuditEventRepository.add() with argument[s] = [AuditEvent [timestamp=Wed Jun 27 14:27:59 EDT 2018, principal=anonymousUser, type=AUTHORIZATION_FAILURE, data={details=org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: null, type=org.springframework.security.access.AccessDeniedException, message=Access is denied}]]
+2018-06-27 14:27:59.907 DEBUG 3810 --- [XNIO-2 task-8] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.repository.CustomAuditEventRepository.add() with result = null
+2018-06-27 14:27:59.930  WARN 3810 --- [XNIO-2 task-8] o.z.p.spring.web.advice.AdviceTrait      : Unauthorized: Full authentication is required to access this resource
+2018-06-27 14:28:00.014  WARN 3810 --- [XNIO-2 task-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved exception caused by Handler execution: org.springframework.security.authentication.InsufficientAuthenticationException: Full authentication is required to access this resource
+2018-06-27 14:28:00.824  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2018-06-27 14:28:00.825  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2018-06-27 14:28:00.826  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2018-06-27 14:28:00.826  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2018-06-27 14:28:00.827  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2018-06-27 14:28:00.827  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2018-06-27 14:28:00.827  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2018-06-27 14:28:00.986  INFO 3810 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2018-06-27 14:28:16.365  WARN 3810 --- [XNIO-2 task-12] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
+2018-06-27 14:28:16.470 DEBUG 3810 --- [XNIO-2 task-12] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.web.rest.UserJWTController.authorize() with argument[s] = [LoginVM{username='admin', rememberMe=null}]
+2018-06-27 14:28:16.500 DEBUG 3810 --- [XNIO-2 task-12] o.j.security.DomainUserDetailsService    : Authenticating admin
+2018-06-27 14:28:16.576  INFO 3810 --- [XNIO-2 task-12] c.h.i.p.impl.PartitionStateManager       : [127.0.0.1]:13781 [dev] [3.9.1] Initializing cluster partition table arrangement...
+2018-06-27 14:28:17.216 DEBUG 3810 --- [XNIO-2 task-12] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.repository.CustomAuditEventRepository.add() with argument[s] = [AuditEvent [timestamp=Wed Jun 27 14:28:17 EDT 2018, principal=admin, type=AUTHENTICATION_SUCCESS, data={}]]
+2018-06-27 14:28:17.254 DEBUG 3810 --- [XNIO-2 task-12] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.repository.CustomAuditEventRepository.add() with result = null
+2018-06-27 14:28:17.656 DEBUG 3810 --- [XNIO-2 task-12] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.UserJWTController.authorize() with result = <200 OK,org.jhipster.web.rest.UserJWTController$JWTToken@34856738,{Authorization=[Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTUzMDIxMDQ5N30.vTsH0B1YvMHLG3ewsFNKmDZsrJyhMiomSqMHbOyomLB8jLCnrLmnc2t9kBrg6jn0Bsta8qNTjK77PJFyc0nJ9g]}>
+2018-06-27 14:28:17.705 DEBUG 3810 --- [XNIO-2 task-13] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.web.rest.AccountResource.getAccount() with argument[s] = []
+2018-06-27 14:28:17.719 DEBUG 3810 --- [XNIO-2 task-13] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.service.UserService.getUserWithAuthorities() with argument[s] = []
+2018-06-27 14:28:17.746 DEBUG 3810 --- [XNIO-2 task-13] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.service.UserService.getUserWithAuthorities() with result = Optional[User{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated='true', langKey='en', activationKey='null'}]
+2018-06-27 14:28:17.750 DEBUG 3810 --- [XNIO-2 task-13] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.AccountResource.getAccount() with result = UserDTO{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated=true, langKey='en', createdBy=system, createdDate=2018-06-25T20:10:45.833Z, lastModifiedBy='system', lastModifiedDate=null, authorities=[ROLE_USER, ROLE_ADMIN]}
+2018-06-27 14:32:29.951  INFO 3810 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-06-27 14:32:54.916  WARN 3810 --- [XNIO-2 task-14] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
+2018-06-27 14:32:58.444  WARN 3810 --- [XNIO-2 task-20] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
+2018-06-27 14:32:58.448 DEBUG 3810 --- [XNIO-2 task-20] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.web.rest.ProfileInfoResource.getActiveProfiles() with argument[s] = []
+2018-06-27 14:32:58.449 DEBUG 3810 --- [XNIO-2 task-20] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.ProfileInfoResource.getActiveProfiles() with result = org.jhipster.web.rest.ProfileInfoResource$ProfileInfoVM@593afd5c
+2018-06-27 14:32:58.520 DEBUG 3810 --- [XNIO-2 task-21] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.repository.CustomAuditEventRepository.add() with argument[s] = [AuditEvent [timestamp=Wed Jun 27 14:32:58 EDT 2018, principal=anonymousUser, type=AUTHORIZATION_FAILURE, data={details=org.springframework.security.web.authentication.WebAuthenticationDetails@b364: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: null, type=org.springframework.security.access.AccessDeniedException, message=Access is denied}]]
+2018-06-27 14:32:58.520 DEBUG 3810 --- [XNIO-2 task-21] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.repository.CustomAuditEventRepository.add() with result = null
+2018-06-27 14:32:58.524  WARN 3810 --- [XNIO-2 task-21] o.z.p.spring.web.advice.AdviceTrait      : Unauthorized: Full authentication is required to access this resource
+2018-06-27 14:32:58.533  WARN 3810 --- [XNIO-2 task-21] .m.m.a.ExceptionHandlerExceptionResolver : Resolved exception caused by Handler execution: org.springframework.security.authentication.InsufficientAuthenticationException: Full authentication is required to access this resource
+2018-06-27 14:33:22.466  WARN 3810 --- [XNIO-2 task-26] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
+2018-06-27 14:33:22.478 DEBUG 3810 --- [XNIO-2 task-26] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.web.rest.UserJWTController.authorize() with argument[s] = [LoginVM{username='admin', rememberMe=null}]
+2018-06-27 14:33:22.487 DEBUG 3810 --- [XNIO-2 task-26] o.j.security.DomainUserDetailsService    : Authenticating admin
+2018-06-27 14:33:22.616 DEBUG 3810 --- [XNIO-2 task-26] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.repository.CustomAuditEventRepository.add() with argument[s] = [AuditEvent [timestamp=Wed Jun 27 14:33:22 EDT 2018, principal=admin, type=AUTHENTICATION_SUCCESS, data={}]]
+2018-06-27 14:33:22.626 DEBUG 3810 --- [XNIO-2 task-26] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.repository.CustomAuditEventRepository.add() with result = null
+2018-06-27 14:33:22.630 DEBUG 3810 --- [XNIO-2 task-26] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.UserJWTController.authorize() with result = <200 OK,org.jhipster.web.rest.UserJWTController$JWTToken@7a755cc3,{Authorization=[Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTUzMDIxMDgwMn0.bbKVOCmyjBfA-yvL7wBDaxay7HwClfwt9TRflaOt5aiWqKeVkC99HEXogt0gJasIcpj9ptE7Lt2lW0iQwXsuBQ]}>
+2018-06-27 14:33:22.650 DEBUG 3810 --- [XNIO-2 task-27] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.web.rest.AccountResource.getAccount() with argument[s] = []
+2018-06-27 14:33:22.651 DEBUG 3810 --- [XNIO-2 task-27] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.service.UserService.getUserWithAuthorities() with argument[s] = []
+2018-06-27 14:33:22.654 DEBUG 3810 --- [XNIO-2 task-27] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.service.UserService.getUserWithAuthorities() with result = Optional[User{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated='true', langKey='en', activationKey='null'}]
+2018-06-27 14:33:22.655 DEBUG 3810 --- [XNIO-2 task-27] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.AccountResource.getAccount() with result = UserDTO{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated=true, langKey='en', createdBy=system, createdDate=2018-06-25T20:10:45.833Z, lastModifiedBy='system', lastModifiedDate=null, authorities=[ROLE_USER, ROLE_ADMIN]}
+2018-06-27 14:35:41.322  WARN 3810 --- [XNIO-2 task-28] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
+2018-06-27 14:35:45.103 DEBUG 3810 --- [XNIO-2 task-34] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.web.rest.ProfileInfoResource.getActiveProfiles() with argument[s] = []
+2018-06-27 14:35:45.104 DEBUG 3810 --- [XNIO-2 task-34] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.ProfileInfoResource.getActiveProfiles() with result = org.jhipster.web.rest.ProfileInfoResource$ProfileInfoVM@3c5cd2c4
+2018-06-27 14:35:45.160 DEBUG 3810 --- [XNIO-2 task-35] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.web.rest.AccountResource.getAccount() with argument[s] = []
+2018-06-27 14:35:45.168 DEBUG 3810 --- [XNIO-2 task-35] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.service.UserService.getUserWithAuthorities() with argument[s] = []
+2018-06-27 14:35:45.185 DEBUG 3810 --- [XNIO-2 task-35] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.service.UserService.getUserWithAuthorities() with result = Optional[User{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated='true', langKey='en', activationKey='null'}]
+2018-06-27 14:35:45.188 DEBUG 3810 --- [XNIO-2 task-35] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.AccountResource.getAccount() with result = UserDTO{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated=true, langKey='en', createdBy=system, createdDate=2018-06-25T20:10:45.833Z, lastModifiedBy='system', lastModifiedDate=null, authorities=[ROLE_USER, ROLE_ADMIN]}
+2018-06-27 14:37:29.962  INFO 3810 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-06-27 14:39:47.794  WARN 3810 --- [XNIO-2 task-40] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
+2018-06-27 14:39:47.858 DEBUG 3810 --- [XNIO-2 task-40] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.web.rest.ProfileInfoResource.getActiveProfiles() with argument[s] = []
+2018-06-27 14:39:47.859 DEBUG 3810 --- [XNIO-2 task-41] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.repository.CustomAuditEventRepository.add() with argument[s] = [AuditEvent [timestamp=Wed Jun 27 14:39:47 EDT 2018, principal=anonymousUser, type=AUTHORIZATION_FAILURE, data={details=org.springframework.security.web.authentication.WebAuthenticationDetails@957e: RemoteIpAddress: 127.0.0.1; SessionId: null, type=org.springframework.security.access.AccessDeniedException, message=Access is denied}]]
+2018-06-27 14:39:47.859 DEBUG 3810 --- [XNIO-2 task-40] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.ProfileInfoResource.getActiveProfiles() with result = org.jhipster.web.rest.ProfileInfoResource$ProfileInfoVM@49dff03a
+2018-06-27 14:39:47.860 DEBUG 3810 --- [XNIO-2 task-41] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.repository.CustomAuditEventRepository.add() with result = null
+2018-06-27 14:39:47.880  WARN 3810 --- [XNIO-2 task-41] o.z.p.spring.web.advice.AdviceTrait      : Unauthorized: Full authentication is required to access this resource
+2018-06-27 14:39:47.916  WARN 3810 --- [XNIO-2 task-41] .m.m.a.ExceptionHandlerExceptionResolver : Resolved exception caused by Handler execution: org.springframework.security.authentication.InsufficientAuthenticationException: Full authentication is required to access this resource
+2018-06-27 14:39:54.078  WARN 3810 --- [XNIO-2 task-42] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
+2018-06-27 14:39:57.803 DEBUG 3810 --- [XNIO-2 task-48] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.web.rest.ProfileInfoResource.getActiveProfiles() with argument[s] = []
+2018-06-27 14:39:57.804 DEBUG 3810 --- [XNIO-2 task-48] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.ProfileInfoResource.getActiveProfiles() with result = org.jhipster.web.rest.ProfileInfoResource$ProfileInfoVM@4258f55c
+2018-06-27 14:39:57.882 DEBUG 3810 --- [XNIO-2 task-49] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.web.rest.AccountResource.getAccount() with argument[s] = []
+2018-06-27 14:39:57.886 DEBUG 3810 --- [XNIO-2 task-49] org.jhipster.aop.logging.LoggingAspect   : Enter: org.jhipster.service.UserService.getUserWithAuthorities() with argument[s] = []
+2018-06-27 14:39:57.901 DEBUG 3810 --- [XNIO-2 task-49] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.service.UserService.getUserWithAuthorities() with result = Optional[User{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated='true', langKey='en', activationKey='null'}]
+2018-06-27 14:39:57.903 DEBUG 3810 --- [XNIO-2 task-49] org.jhipster.aop.logging.LoggingAspect   : Exit: org.jhipster.web.rest.AccountResource.getAccount() with result = UserDTO{login='admin', firstName='Administrator', lastName='Administrator', email='admin@localhost', imageUrl='', activated=true, langKey='en', createdBy=system, createdDate=2018-06-25T20:10:45.833Z, lastModifiedBy='system', lastModifiedDate=null, authorities=[ROLE_USER, ROLE_ADMIN]}
+2018-06-27 14:42:14.613  WARN 3810 --- [XNIO-2 task-54] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
+2018-06-27 14:42:29.969  INFO 3810 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-06-27 14:47:29.974  INFO 3810 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
