@@ -12667,3 +12667,8 @@ Members {size:1, ver:1} [
 2018-06-27 14:42:14.613  WARN 3810 --- [XNIO-2 task-54] o.s.c.n.zuul.web.ZuulHandlerMapping      : No routes found from RouteLocator
 2018-06-27 14:42:29.969  INFO 3810 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2018-06-27 14:47:29.974  INFO 3810 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-06-27 14:52:29.981  INFO 3810 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-06-27 14:57:29.988  INFO 3810 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-06-27 15:02:29.996  INFO 3810 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-06-27 15:07:30.006  INFO 3810 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2018-06-27 15:12:30.014  INFO 3810 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
