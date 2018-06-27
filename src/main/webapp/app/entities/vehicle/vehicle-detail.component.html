@@ -1,0 +1,62 @@
+
+<div *ngIf="vehicle">
+    <h2><span>Vehicle</span> {{vehicle.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Make</span></dt>
+        <dd>
+            <span>{{vehicle.make}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <span>{{vehicle.model}}</span>
+        </dd>
+        <dt><span>Year</span></dt>
+        <dd>
+            <span>{{vehicle.year}}</span>
+        </dd>
+        <dt><span>Mileage</span></dt>
+        <dd>
+            <span>{{vehicle.mileage}}</span>
+        </dd>
+        <dt><span>Vin</span></dt>
+        <dd>
+            <span>{{vehicle.vin}}</span>
+        </dd>
+        <dt><span>Has Policy</span></dt>
+        <dd>
+            <span>{{vehicle.hasPolicy}}</span>
+        </dd>
+        <dt><span>Policy Number</span></dt>
+        <dd>
+            <span>{{vehicle.policyNumber}}</span>
+        </dd>
+        <dt><span>Insurancedetails</span></dt>
+        <dd>
+            <div *ngIf="vehicle.insurancedetails">
+                <a [routerLink]="['/insurance-details', vehicle.insurancedetails?.id]">{{vehicle.insurancedetails?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Driver</span></dt>
+        <dd>
+            <div *ngIf="vehicle.driver">
+                <a [routerLink]="['/driver', vehicle.driver?.id]">{{vehicle.driver?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'vehicle/'+ vehicle.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

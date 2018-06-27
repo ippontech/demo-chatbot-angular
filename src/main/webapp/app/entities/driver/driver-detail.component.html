@@ -1,0 +1,66 @@
+
+<div *ngIf="driver">
+    <h2><span>Driver</span> {{driver.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>First Name</span></dt>
+        <dd>
+            <span>{{driver.firstName}}</span>
+        </dd>
+        <dt><span>Last Name</span></dt>
+        <dd>
+            <span>{{driver.lastName}}</span>
+        </dd>
+        <dt><span>Birth Date</span></dt>
+        <dd>
+            <span>{{driver.birthDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>License Date</span></dt>
+        <dd>
+            <span>{{driver.licenseDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Past Accident</span></dt>
+        <dd>
+            <span>{{driver.pastAccident}}</span>
+        </dd>
+        <dt><span>Zip Code</span></dt>
+        <dd>
+            <span>{{driver.zipCode}}</span>
+        </dd>
+        <dt><span>Disable</span></dt>
+        <dd>
+            <span>{{driver.disable}}</span>
+        </dd>
+        <dt><span>Marital Status</span></dt>
+        <dd>
+            <span>{{driver.maritalStatus}}</span>
+        </dd>
+        <dt><span>Owns Home</span></dt>
+        <dd>
+            <span>{{driver.ownsHome}}</span>
+        </dd>
+        <dt><span>Military Service</span></dt>
+        <dd>
+            <span>{{driver.militaryService}}</span>
+        </dd>
+        <dt><span>User Login</span></dt>
+        <dd>
+            <span>{{account.login}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'driver/'+ driver.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

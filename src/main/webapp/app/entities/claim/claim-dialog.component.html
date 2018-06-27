@@ -1,0 +1,81 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myClaimLabel">Create or edit a Claim</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!claim.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="claim.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_injuryInvolved">Injury Involved</label>
+            <input type="checkbox" class="form-control" name="injuryInvolved" id="field_injuryInvolved"
+                [(ngModel)]="claim.injuryInvolved" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_accidentDate">Accident Date</label>
+            <div class="input-group">
+                <input id="field_accidentDate" type="text" class="form-control" name="accidentDate" ngbDatepicker  #accidentDateDp="ngbDatepicker" [(ngModel)]="claim.accidentDate"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="accidentDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_accidentTime">Accident Time</label>
+            <div class="d-flex">
+                <input id="field_accidentTime" type="datetime-local" class="form-control" name="accidentTime" [(ngModel)]="claim.accidentTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_accidentCity">Accident City</label>
+            <input type="text" class="form-control" name="accidentCity" id="field_accidentCity"
+                [(ngModel)]="claim.accidentCity" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_accidentState">Accident State</label>
+            <input type="text" class="form-control" name="accidentState" id="field_accidentState"
+                [(ngModel)]="claim.accidentState" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_passengersInCars">Passengers In Cars</label>
+            <input type="checkbox" class="form-control" name="passengersInCars" id="field_passengersInCars"
+                [(ngModel)]="claim.passengersInCars" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_damageLocation">Damage Location</label>
+            <input type="text" class="form-control" name="damageLocation" id="field_damageLocation"
+                [(ngModel)]="claim.damageLocation" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_driver">Driver</label>
+            <select class="form-control" id="field_driver" name="driver" [(ngModel)]="claim.driver" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="driverOption.id === claim.driver?.id ? claim.driver : driverOption" *ngFor="let driverOption of drivers; trackBy: trackDriverById">{{driverOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_vehicle">Vehicle</label>
+            <select class="form-control" id="field_vehicle" name="vehicle" [(ngModel)]="claim.vehicle">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="vehicleOption.id === claim.vehicle?.id ? claim.vehicle : vehicleOption" *ngFor="let vehicleOption of vehicles; trackBy: trackVehicleById">{{vehicleOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

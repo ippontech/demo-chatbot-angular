@@ -1,0 +1,45 @@
+
+<div *ngIf="insuranceDetails">
+    <h2><span>Insurance Details</span> {{insuranceDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Level</span></dt>
+        <dd>
+            <span>{{insuranceDetails.level}}</span>
+        </dd>
+        <dt><span>Annual Premium</span></dt>
+        <dd>
+            <span>{{insuranceDetails.annualPremium}}</span>
+        </dd>
+        <dt><span>Injury Liability</span></dt>
+        <dd>
+            <span>{{insuranceDetails.injuryLiability}}</span>
+        </dd>
+        <dt><span>Property Liability</span></dt>
+        <dd>
+            <span>{{insuranceDetails.propertyLiability}}</span>
+        </dd>
+        <dt><span>Uninsured Motorist Injury</span></dt>
+        <dd>
+            <span>{{insuranceDetails.uninsuredMotoristInjury}}</span>
+        </dd>
+        <dt><span>Uninsured Motorist Property</span></dt>
+        <dd>
+            <span>{{insuranceDetails.uninsuredMotoristProperty}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'insurance-details/'+ insuranceDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
