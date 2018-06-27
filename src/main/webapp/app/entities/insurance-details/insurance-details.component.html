@@ -1,9 +1,9 @@
 <div>
     <h2>
         <span>Insurance Details</span>
-        <button class="btn btn-primary float-right jh-create-entity create-insurance-details" [routerLink]="['/', { outlets: { popup: ['insurance-details-new'] } }]">
+        <button class="btn btn-primary float-right jh-create-entity create-insurance-details" [routerLink]="['/', { outlets: { popup: ['insurance-details-new'] } }]" *jhiHasAnyAuthority="'ROLE_ADMIN'">
             <span class="fa fa-plus"></span>
-            <span >
+            <span>
             Create new Insurance Details
             </span>
         </button>
