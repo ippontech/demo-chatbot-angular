@@ -1,33 +1,49 @@
 
 <div *ngIf="insuranceDetails">
-    <h2><span>Insurance Details</span> {{insuranceDetails.id}}</h2>
+    <h2><span>Plan </span> {{insuranceDetails.level}} <span>details: </span></h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
-    <dl class="row-md jh-entity-details">
+    
+    <div class="container-fluid bg-3 text-center">    
+            <div class="row">
+              <div class="col-sm-4">
+                  <h4>Summary</h4>
+                <p>Summary text goes here</p>
+                <img src="../../../content/images/fullLogo.jpg" class="img-circle margin" style="width:50%" alt="Image">
+              </div>
+              <div class="col-sm-4"> 
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <img src="../../../content/images/hipster.png" class="img-circle margin" style="width:100%" alt="Image">
+              </div>
+              <div class="col-sm-4"> 
+                    <h4>Plan Includes:</h4>
+                    <p *ngIf = "insuranceDetails.injuryLiability"><span class= "fa fa-check-square"></span>&nbsp;<span> Injury Liability</span></p>
+                    <p *ngIf = "insuranceDetails.propertyLiability"><span class= "fa fa-check-square"></span>&nbsp;<span> Property Liability</span></p>
+                    <p *ngIf = "insuranceDetails.uninsuredMotoristInjury"><span class= "fa fa-check-square"></span>&nbsp;<span> Uninsured Motorist Injury</span></p>
+                    <p *ngIf = "insuranceDetails.uninsuredMotoristProperty"><span class= "fa fa-check-square"></span>&nbsp;<span> Uninsured Motorist Property</span></p>
+
+                    <button type="button" class="btn btn-primary btn-block">
+                        <span class="fa fa-plus"></span>&nbsp;<span> Add this plan to my account
+                    </button> 
+              </div>
+            </div>
+          </div>
+
+    <dl class="row-md jh-entity-details" [ngSwitch] = "insuranceDetails.level" >
+        
         <dt><span>Level</span></dt>
         <dd>
             <span>{{insuranceDetails.level}}</span>
         </dd>
         <dt><span>Annual Premium</span></dt>
         <dd>
-            <span>{{insuranceDetails.annualPremium}}</span>
+            <span>{{insuranceDetails.annualPremium | currency:USD}}</span>
         </dd>
-        <dt><span>Injury Liability</span></dt>
-        <dd>
-            <span>{{insuranceDetails.injuryLiability}}</span>
-        </dd>
-        <dt><span>Property Liability</span></dt>
-        <dd>
-            <span>{{insuranceDetails.propertyLiability}}</span>
-        </dd>
-        <dt><span>Uninsured Motorist Injury</span></dt>
-        <dd>
-            <span>{{insuranceDetails.uninsuredMotoristInjury}}</span>
-        </dd>
-        <dt><span>Uninsured Motorist Property</span></dt>
-        <dd>
-            <span>{{insuranceDetails.uninsuredMotoristProperty}}</span>
-        </dd>
+        <dt>Plan Includes:</dt>
+        <dd *ngIf = "insuranceDetails.injuryLiability"><span>Injury Liability</span></dd>
+        <dd *ngIf = "insuranceDetails.propertyLiability"><span>Property Liability</span></dd>
+        <dd *ngIf = "insuranceDetails.uninsuredMotoristInjury"><span>Uninsured Motorist Injury</span></dd>
+        <dd *ngIf = "insuranceDetails.uninsuredMotoristProperty"><span>Uninsured Motorist Property</span></dd>
     </dl>
 
     <button type="submit"
@@ -35,7 +51,7 @@
             class="btn btn-info">
         <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
     </button>
-    <button type="button"
+    <button type="button" *jhiHasAnyAuthority="'ROLE_ADMIN'"
             [routerLink]="['/', { outlets: { popup: 'insurance-details/'+ insuranceDetails.id + '/edit'} }]"
             replaceUrl="true"
             queryParamsHandling="merge"
