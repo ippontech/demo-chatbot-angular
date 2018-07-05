@@ -30,18 +30,22 @@ export class DriverService {
     }
 
     find(id: number): Observable<EntityResponseType> {
-        return this.http.get<Driver>(`${this.resourceUrl}/${id}`, { observe: 'response'})
+        return this.http.get<Driver>(`${this.resourceUrl}/byId/${id}`, { observe: 'response'})
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
-    query(req?: any): Observable<HttpResponse<Driver[]>> {
+    query(login?: string,req?: any): Observable<HttpResponse<Driver[]>> {
         const options = createRequestOption(req);
-        return this.http.get<Driver[]>(this.resourceUrl, { params: options, observe: 'response' })
+        if(!login){
+            login="admin";
+        }
+        console.log("about to send http request with login: {}", login);
+        return this.http.get<Driver[]>(`${this.resourceUrl}/byLogin/${login}`, { params: options, observe: 'response' })
             .map((res: HttpResponse<Driver[]>) => this.convertArrayResponse(res));
     }
 
     delete(id: number): Observable<HttpResponse<any>> {
-        return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response'});
+        return this.http.delete<any>(`${this.resourceUrl}/byId/${id}`, { observe: 'response'});
     }
 
     private convertResponse(res: EntityResponseType): EntityResponseType {

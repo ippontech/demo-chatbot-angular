@@ -11,6 +11,7 @@ import { ClaimPopupService } from './claim-popup.service';
 import { ClaimService } from './claim.service';
 import { Driver, DriverService } from '../driver';
 import { Vehicle, VehicleService } from '../vehicle';
+import { Principal } from '../../shared';
 
 @Component({
     selector: 'jhi-claim-dialog',
@@ -22,6 +23,7 @@ export class ClaimDialogComponent implements OnInit {
     isSaving: boolean;
 
     drivers: Driver[];
+    currentAccount: any;
 
     vehicles: Vehicle[];
     accidentDateDp: any;
@@ -32,11 +34,15 @@ export class ClaimDialogComponent implements OnInit {
         private claimService: ClaimService,
         private driverService: DriverService,
         private vehicleService: VehicleService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private principal: Principal
     ) {
     }
 
     ngOnInit() {
+        this.principal.identity().then((account) => {
+            this.currentAccount = account;
+        });
         this.isSaving = false;
         this.driverService.query()
             .subscribe((res: HttpResponse<Driver[]>) => { this.drivers = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));

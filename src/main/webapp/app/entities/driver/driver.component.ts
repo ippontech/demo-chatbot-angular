@@ -5,7 +5,7 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { Driver } from './driver.model';
 import { DriverService } from './driver.service';
-import { Principal } from '../../shared';
+import { Principal, User, Account } from '../../shared';
 
 @Component({
     selector: 'jhi-driver',
@@ -13,7 +13,7 @@ import { Principal } from '../../shared';
 })
 export class DriverComponent implements OnInit, OnDestroy {
 drivers: Driver[];
-    currentAccount: any;
+    currentAccount: Account;
     eventSubscriber: Subscription;
 
     constructor(
@@ -25,7 +25,9 @@ drivers: Driver[];
     }
 
     loadAll() {
-        this.driverService.query().subscribe(
+        console.log("load initialize");
+        console.log(this.currentAccount.login);
+        this.driverService.query(this.currentAccount.login).subscribe(
             (res: HttpResponse<Driver[]>) => {
                 this.drivers = res.body;
             },
@@ -33,10 +35,10 @@ drivers: Driver[];
         );
     }
     ngOnInit() {
-        this.loadAll();
         this.principal.identity().then((account) => {
-            this.currentAccount = account;
-        });
+            this.currentAccount = account;            
+            this.loadAll();
+        });                
         this.registerChangeInDrivers();
     }
 

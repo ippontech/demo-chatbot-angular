@@ -11,6 +11,7 @@ import { VehiclePopupService } from './vehicle-popup.service';
 import { VehicleService } from './vehicle.service';
 import { InsuranceDetails, InsuranceDetailsService } from '../insurance-details';
 import { Driver, DriverService } from '../driver';
+import { Principal } from '../../shared';
 
 @Component({
     selector: 'jhi-vehicle-dialog',
@@ -24,6 +25,7 @@ export class VehicleDialogComponent implements OnInit {
     insurancedetails: InsuranceDetails[];
 
     drivers: Driver[];
+    currentAccount: any;
 
     constructor(
         public activeModal: NgbActiveModal,
@@ -31,11 +33,15 @@ export class VehicleDialogComponent implements OnInit {
         private vehicleService: VehicleService,
         private insuranceDetailsService: InsuranceDetailsService,
         private driverService: DriverService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private principal: Principal
     ) {
     }
 
     ngOnInit() {
+        this.principal.identity().then((account) => {
+            this.currentAccount = account;
+        });
         this.isSaving = false;
         this.insuranceDetailsService
             .query({filter: 'vehicle-is-null'})
@@ -50,7 +56,7 @@ export class VehicleDialogComponent implements OnInit {
                         }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
                 }
             }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.driverService.query()
+            this.driverService.query()
             .subscribe((res: HttpResponse<Driver[]>) => { this.drivers = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
