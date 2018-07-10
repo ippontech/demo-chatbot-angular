@@ -16,7 +16,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span>ID</span></th>
             <th><span>Make</span></th>
             <th><span>Model</span></th>
             <th><span>Year</span></th>
@@ -24,14 +23,12 @@
             <th><span>Vin</span></th>
             <th><span>Has Policy</span></th>
             <th><span>Policy Number</span></th>
-            <th><span>Insurancedetails</span></th>
             <th><span>Driver</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let vehicle of vehicles ;trackBy: trackId">
-                <td><a [routerLink]="['../vehicle', vehicle.id ]">{{vehicle.id}}</a></td>
                 <td>{{vehicle.make}}</td>
                 <td>{{vehicle.model}}</td>
                 <td>{{vehicle.year}}</td>
@@ -39,11 +36,6 @@
                 <td>{{vehicle.vin}}</td>
                 <td>{{vehicle.hasPolicy}}</td>
                 <td>{{vehicle.policyNumber}}</td>
-                <td>
-                    <div *ngIf="vehicle.insurancedetails">
-                        <a [routerLink]="['../insurance-details', vehicle.insurancedetails?.id ]" >{{vehicle.insurancedetails?.id}}</a>
-                    </div>
-                </td>
                 <td>
                     <div *ngIf="vehicle.driver">
                         <a [routerLink]="['../driver', vehicle.driver?.id ]" >{{vehicle.driver?.id}}</a>

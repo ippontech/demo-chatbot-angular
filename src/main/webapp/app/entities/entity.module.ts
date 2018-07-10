@@ -14,6 +14,9 @@ import { GatewayInsuranceDetailsModule } from './insurance-details/insurance-det
         GatewayInsuranceDetailsModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
+    exports: [
+        GatewayVehicleModule
+    ],
     declarations: [],
     entryComponents: [],
     providers: [],

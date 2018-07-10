@@ -27,13 +27,16 @@
 
         <jhi-driver></jhi-driver>
 
-        <div class="jumbotron">
+        <div class="jumbotron" [ngSwitch]="isAuthenticated()">
+        <span *ngSwitchCase="false">
             <span class="fa fa-car"> 2. </span>
-            <span>You don't have registered any car: </span>
+            <span>You haven't registered a car yet: </span>
             <button type="submit" [routerLink]="['../vehicle']" class="btn btn-primary btn-md">
                 <span class="fa fa-plus"></span>
                 <span class="d-none d-md-inline">Add Vehicle Info</span>
             </button>
+        </span>
+            <jhi-vehicle *ngSwitchCase="true"></jhi-vehicle>
         </div>
       
         <div class="jumbotron">
