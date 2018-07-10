@@ -4,46 +4,74 @@
     </div>
     <div class="col-md-9">
         <h1 class="display-4">Ippon Insurance</h1>
-        <p class="lead">Select a plan from the options below</p>
 
         <div [ngSwitch]="isAuthenticated()">
             <div class="alert alert-success" *ngSwitchCase="true">
-                <span *ngIf="account"
-                   > Yeah!!! You are logged in as user "{{account.login}}". </span>
-            </div>
-
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span>If you want to </span>
-                <a class="alert-link" (click)="login()">sign in</a><span>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>
+                <span *ngIf="account"> Yeah! You are logged in as : "{{account.login}}". </span>
             </div>
             <div class="alert alert-warning" *ngSwitchCase="false">
                 <span>You don't have an account yet?</span>
                 <a class="alert-link" routerLink="register">Register a new account</a>
             </div>
         </div>
-        <button type="submit"
-            [routerLink]="['../insurance-details']"
-            class="btn btn-primary btn-lg">
+
+        <p class="lead">Follow our 3 easy steps to subscribe to an insurance plan! </p>
+        <div class="jumbotron">
+            <span class="fa fa-id-card"> 1. </span>
+            <span>You don't have a driver profile currently: </span>
+            <button type="submit" [routerLink]="['../driver']" class="btn btn-primary btn-md">
+                <span class="fa fa-plus"></span>
+                <span class="d-none d-md-inline">Create Your Driver Profile</span>
+            </button>
+        </div>
+
+        <jhi-driver></jhi-driver>
+
+        <div class="jumbotron">
+            <span class="fa fa-car"> 2. </span>
+            <span>You don't have registered any car: </span>
+            <button type="submit" [routerLink]="['../vehicle']" class="btn btn-primary btn-md">
+                <span class="fa fa-plus"></span>
+                <span class="d-none d-md-inline">Add Vehicle Info</span>
+            </button>
+        </div>
+      
+        <div class="jumbotron">
+
+            <span class="fa fa-pagelines"> 3. </span>
+            <span> You can finally choose a plan based on its level of protection: </span>
+            <button class="btn btn-danger btn-md">
+                <span class="fa fa-frown-o"></span>
+                <span class="d-none d-md-inline">Low</span>
+            </button>
+            <button class="btn btn-primary btn-md">
+                <span class="fa fa-frown-o"></span>
+                <span class="d-none d-md-inline">Middle</span>
+            </button>
+            <button class="btn btn-success">
+                <span class="fa fa-frown-o"></span>
+                <span class="d-none d-md-inline">High</span>
+            </button>
+
+        </div>
+
+
+        <!--         
+        <button type="submit" [routerLink]="['../insurance-details']" class="btn btn-primary btn-lg">
             <span class="fa fa-eye"></span>
             <span class="d-none d-md-inline">View Available Insurance Plans</span>
         </button>
-        <button type="submit"
-            [routerLink]="['../driver']"
-            class="btn btn-primary btn-lg">
+        <button type="submit" [routerLink]="['../driver']" class="btn btn-primary btn-lg">
             <span class="fa fa-plus"></span>
             <span class="d-none d-md-inline">Add Driver Info</span>
         </button>
-        <button type="submit"
-        [routerLink]="['../claim']"
-        class="btn btn-primary btn-lg">
-        <span class="fa fa-plus"></span>
-        <span class="d-none d-md-inline">Make a Claim</span>
-    </button>
-    <button type="submit"
-    [routerLink]="['../vehicle']"
-    class="btn btn-primary btn-lg">
-    <span class="fa fa-plus"></span>
-    <span class="d-none d-md-inline">Add Vehicle Info</span>
-</button>
+        <button type="submit" [routerLink]="['../claim']" class="btn btn-primary btn-lg">
+            <span class="fa fa-plus"></span>
+            <span class="d-none d-md-inline">Make a Claim</span>
+        </button>
+        <button type="submit" [routerLink]="['../vehicle']" class="btn btn-primary btn-lg">
+            <span class="fa fa-plus"></span>
+            <span class="d-none d-md-inline">Add Vehicle Info</span>
+        </button> -->
     </div>
 </div>

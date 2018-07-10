@@ -12,7 +12,7 @@ import { Principal, User, Account } from '../../shared';
     templateUrl: './driver.component.html'
 })
 export class DriverComponent implements OnInit, OnDestroy {
-drivers: Driver[];
+    drivers: Driver[];
     currentAccount: Account;
     eventSubscriber: Subscription;
 
