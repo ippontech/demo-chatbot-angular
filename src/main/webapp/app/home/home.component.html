@@ -27,7 +27,7 @@
 
         <jhi-driver></jhi-driver>
 
-        <div class="jumbotron" [ngSwitch]="isAuthenticated()">
+        <div class="jumbotron" [ngSwitch]="hasVehicle()">
         <span *ngSwitchCase="false">
             <span class="fa fa-car"> 2. </span>
             <span>You haven't registered a car yet: </span>

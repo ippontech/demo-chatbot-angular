@@ -34,9 +34,9 @@ export class DriverService {
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
-    query(login?: string,req?: any): Observable<HttpResponse<Driver[]>> {
+    query(login?: string, req?: any): Observable<HttpResponse<Driver[]> > {
         const options = createRequestOption(req);
-        console.log("about to send http request with login: ", login);
+        console.log('about to send http request with login: ', login);
         return this.http.get<Driver[]>(`${this.resourceUrl}/byLogin/${login}`, { params: options, observe: 'response' })
             .map((res: HttpResponse<Driver[]>) => this.convertArrayResponse(res));
     }

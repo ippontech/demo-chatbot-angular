@@ -25,7 +25,7 @@ export class DriverComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
-        console.log("load initialize");
+        console.log('load initialize');
         console.log(this.currentAccount.login);
         this.driverService.query(this.currentAccount.login).subscribe(
             (res: HttpResponse<Driver[]>) => {
@@ -36,9 +36,9 @@ export class DriverComponent implements OnInit, OnDestroy {
     }
     ngOnInit() {
         this.principal.identity().then((account) => {
-            this.currentAccount = account;            
+            this.currentAccount = account;
             this.loadAll();
-        });                
+        });
         this.registerChangeInDrivers();
     }
 

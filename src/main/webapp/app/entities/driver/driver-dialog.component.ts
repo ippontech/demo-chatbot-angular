@@ -31,13 +31,11 @@ export class DriverDialogComponent implements OnInit {
     ) {
     }
 
-
     ngOnInit() {
         this.isSaving = false;
         this.principal.identity().then((account) => {
             this.account = account;
         });
-        
     }
 
     isAuthenticated() {
@@ -50,12 +48,10 @@ export class DriverDialogComponent implements OnInit {
 
     save() {
         this.isSaving = true;
-        this.driver.userLogin=this.account.login;
+        this.driver.userLogin = this.account.login;
         console.log(this.account);
-        
         if (this.driver.id !== undefined) {
-            this.subscribeToSaveResponse(
-                this.driverService.update(this.driver));
+            this.subscribeToSaveResponse(this.driverService.update(this.driver));
         } else {
             this.subscribeToSaveResponse(
                 this.driverService.create(this.driver));

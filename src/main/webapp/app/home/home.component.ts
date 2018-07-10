@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
+import { DriverComponent } from '../entities/driver/driver.component';
+import { DriverService } from '../entities/driver/driver.service';
 
 import { Account, LoginModalService, Principal } from '../shared';
 
@@ -15,6 +17,7 @@ import { Account, LoginModalService, Principal } from '../shared';
 export class HomeComponent implements OnInit {
     account: Account;
     modalRef: NgbModalRef;
+    driver: DriverComponent;
 
     constructor(
         private principal: Principal,
@@ -44,5 +47,9 @@ export class HomeComponent implements OnInit {
 
     login() {
         this.modalRef = this.loginModalService.open();
+    }
+
+    hasVehicle() {
+        return this.driver.drivers.length > 0;
     }
 }

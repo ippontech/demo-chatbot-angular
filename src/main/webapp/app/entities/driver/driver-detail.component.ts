@@ -59,4 +59,3 @@ export class DriverDetailComponent implements OnInit, OnDestroy {
         );
     }
 }
-
