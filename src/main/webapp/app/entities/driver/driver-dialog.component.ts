@@ -50,7 +50,9 @@ export class DriverDialogComponent implements OnInit {
 
     save() {
         this.isSaving = true;
-        this.driver.userLogin=this.account.login;
+        if (!this.driver.userLogin){
+            this.driver.userLogin=this.account.login;
+        }
         console.log(this.account);
         
         if (this.driver.id !== undefined) {
