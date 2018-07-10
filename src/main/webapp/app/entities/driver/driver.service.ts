@@ -30,7 +30,7 @@ export class DriverService {
     }
 
     find(id: number): Observable<EntityResponseType> {
-        return this.http.get<Driver>(`${this.resourceUrl}/byId/${id}`, { observe: 'response'})
+        return this.http.get<Driver>(`${this.resourceUrl}/${id}`, { observe: 'response'})
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
@@ -42,7 +42,7 @@ export class DriverService {
     }
 
     delete(id: number): Observable<HttpResponse<any>> {
-        return this.http.delete<any>(`${this.resourceUrl}/byId/${id}`, { observe: 'response'});
+        return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response'});
     }
 
     private convertResponse(res: EntityResponseType): EntityResponseType {
