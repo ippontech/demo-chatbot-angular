@@ -1,0 +1,83 @@
+<div>
+    <h2>
+        <span>Insurance Details</span>
+        <button class="btn btn-primary float-right jh-create-entity create-insurance-details" [routerLink]="['/', { outlets: { popup: ['insurance-details-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span>
+                Create new Insurance Details
+            </span>
+        </button>
+        <!--Available Insurance Plans-->
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="insuranceDetails">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <span>ID</span>
+                    </th>
+                    <th>
+                        <span>Level</span>
+                    </th>
+                    <th>
+                        <span>Annual Premium</span>
+                    </th>
+                    <th>
+                        <span>Injury Liability</span>
+                    </th>
+                    <th>
+                        <span>Property Liability</span>
+                    </th>
+                    <th>
+                        <span>Uninsured Motorist Injury</span>
+                    </th>
+                    <th>
+                        <span>Uninsured Motorist Property</span>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let insuranceDetails of insuranceDetails ;trackBy: trackId">
+                    <td>{{insuranceDetails.id}}</td>
+                    <td>{{insuranceDetails.level}}</td>
+                    <td>{{insuranceDetails.annualPremium | currency:USD}}</td>
+                    <td>{{insuranceDetails.injuryLiability}}</td>
+                    <td>{{insuranceDetails.propertyLiability}}</td>
+                    <td>{{insuranceDetails.uninsuredMotoristInjury}}</td>
+                    <td>{{insuranceDetails.uninsuredMotoristProperty}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit" [routerLink]="['../insurance-details', insuranceDetails.id ]" class="btn btn-info btn-sm">
+                                <span class="fa fa-eye"></span>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+                            <!--
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'insurance-details/'+ insuranceDetails.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'insurance-details/'+ insuranceDetails.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                        -->
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
