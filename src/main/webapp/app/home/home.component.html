@@ -3,14 +3,15 @@
         <span class="hipster img-fluid rounded"></span>
     </div>
     <div class="col-md-9">
-        <h1 class="display-4">Ippon Insurance</h1>
+        <h1 class="display-4">Welcome, Java Hipster!</h1>
+        <p class="lead">This is your homepage</p>
 
         <div [ngSwitch]="isAuthenticated()">
             <div class="alert alert-success" *ngSwitchCase="true">
                 <span *ngIf="account"> Yea! You are logged in as : "{{account.login}}". </span>
             </div>
             <div class="alert alert-warning" *ngSwitchCase="false">
-                <span>You don't have an account yet?</span>
+                <span>You don't have an account yet?</span>&nbsp;
                 <a class="alert-link" routerLink="register">Register a new account</a>
             </div>
         </div>
@@ -50,7 +51,7 @@
 
 
 
-<!--         
+<!--
         <button type="submit" [routerLink]="['../insurance-details']" class="btn btn-primary btn-lg">
             <span class="fa fa-eye"></span>
             <span class="d-none d-md-inline">View Available Insurance Plans</span>

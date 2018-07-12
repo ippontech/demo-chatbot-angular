@@ -12,41 +12,30 @@ import {
     VehicleDeletePopupComponent,
     VehicleDeleteDialogComponent,
     vehicleRoute,
-    vehiclePopupRoute,
+    vehiclePopupRoute
 } from './';
 
-const ENTITY_STATES = [
-    ...vehicleRoute,
-    ...vehiclePopupRoute,
-];
+const ENTITY_STATES = [...vehicleRoute, ...vehiclePopupRoute];
 
 @NgModule({
-    imports: [
-        GatewaySharedModule,
-        RouterModule.forChild(ENTITY_STATES)
-    ],
-    exports: [
-        VehicleComponent,
-    ],
+    imports: [GatewaySharedModule, RouterModule.forChild(ENTITY_STATES)],
+    exports: [VehicleComponent],
     declarations: [
         VehicleComponent,
         VehicleDetailComponent,
         VehicleDialogComponent,
         VehicleDeleteDialogComponent,
         VehiclePopupComponent,
-        VehicleDeletePopupComponent,
+        VehicleDeletePopupComponent
     ],
     entryComponents: [
         VehicleComponent,
         VehicleDialogComponent,
         VehiclePopupComponent,
         VehicleDeleteDialogComponent,
-        VehicleDeletePopupComponent,
+        VehicleDeletePopupComponent
     ],
-    providers: [
-        VehicleService,
-        VehiclePopupService,
-    ],
+    providers: [VehicleService, VehiclePopupService],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class GatewayVehicleModule {}

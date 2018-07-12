@@ -28,8 +28,7 @@ export class VehicleComponent implements OnInit, OnDestroy {
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
         private principal: Principal
-    ) {
-    }
+    ) {}
 
     loadAll() {
         this.vehicleService.query().subscribe(
@@ -40,7 +39,7 @@ export class VehicleComponent implements OnInit, OnDestroy {
         );
     }
     ngOnInit() {
-        this.principal.identity().then((account) => {
+        this.principal.identity().then(account => {
             this.currentAccount = account;
             // this.driverService.query(this.currentAccount.login).subscribe(
             //     (res: HttpResponse<Driver[]>) => {
@@ -61,18 +60,18 @@ export class VehicleComponent implements OnInit, OnDestroy {
         return item.id;
     }
     registerChangeInVehicles() {
-        this.eventSubscriber = this.eventManager.subscribe('vehicleListModification', (response) => this.loadAll());
+        this.eventSubscriber = this.eventManager.subscribe('vehicleListModification', response => this.loadAll());
     }
 
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);
     }
     hasCar() {
-        return this.vehicles.length>0;
+        return this.vehicles.length > 0;
     }
 
-    updateInsurance(level:number, selectVehicle:Vehicle): void{
-        this.vehicle=selectVehicle;
+    updateInsurance(level: number, selectVehicle: Vehicle): void {
+        this.vehicle = selectVehicle;
         //this.vehicle.insurancedetails
         this.insuranceService.find(level).subscribe(
             (res: HttpResponse<InsuranceDetails>) => {
@@ -80,7 +79,7 @@ export class VehicleComponent implements OnInit, OnDestroy {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.vehicle.insurancedetails=this.insuranceDetails;
+        this.vehicle.insurancedetails = this.insuranceDetails;
         this.vehicleService.update(this.vehicle);
     }
 }
