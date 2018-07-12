@@ -16,6 +16,7 @@ import { GatewayInsuranceDetailsModule } from './insurance-details/insurance-det
     ],
     exports: [
         GatewayDriverModule,
+        GatewayVehicleModule,
     ],
     declarations: [],
     entryComponents: [],

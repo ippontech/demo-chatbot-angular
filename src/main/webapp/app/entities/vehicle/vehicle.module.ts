@@ -25,6 +25,9 @@ const ENTITY_STATES = [
         GatewaySharedModule,
         RouterModule.forChild(ENTITY_STATES)
     ],
+    exports: [
+        VehicleComponent,
+    ],
     declarations: [
         VehicleComponent,
         VehicleDetailComponent,

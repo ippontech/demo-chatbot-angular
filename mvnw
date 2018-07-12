@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 # ----------------------------------------------------------------------------
 # or more contributor license agreements.  See the NOTICE file
 # distributed with this work for additional information
@@ -32,8 +32,7 @@
 #       set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
 #   MAVEN_SKIP_RC - flag to disable loading of mavenrc files
 # ----------------------------------------------------------------------------
-:set list;
-:set fileformat=unix
+
 if [ -z "$MAVEN_SKIP_RC" ] ; then
 
   if [ -f /etc/mavenrc ] ; then

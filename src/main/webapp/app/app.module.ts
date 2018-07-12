@@ -26,7 +26,6 @@ import {
     PageRibbonComponent,
     ErrorComponent
 } from './layouts';
-import { HeroComponent } from './hero/hero.component';
 
 @NgModule({
     imports: [
@@ -46,7 +45,6 @@ import { HeroComponent } from './hero/hero.component';
         ErrorComponent,
         PageRibbonComponent,
         FooterComponent,
-        HeroComponent
     ],
     providers: [
         ProfileService,

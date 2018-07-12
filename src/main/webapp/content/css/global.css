@@ -184,6 +184,8 @@ entity detail page css
     }
 }
 
+
+
 /* ==========================================================================
 ui bootstrap tweaks
 ========================================================================== */
@@ -209,3 +211,6 @@ ui bootstrap tweaks
  }
 
 /* jhipster-needle-css-add-main JHipster will add new css style */
+.td{
+    text-align:center;
+}
