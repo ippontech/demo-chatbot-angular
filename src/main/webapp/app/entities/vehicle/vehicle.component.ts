@@ -8,6 +8,7 @@ import { VehicleService } from './vehicle.service';
 import { Principal, Account } from '../../shared';
 import { DriverService, Driver } from '../driver';
 import { InsuranceDetails, InsuranceDetailsService } from '../insurance-details';
+import { Observable } from '../../../../../../node_modules/rxjs';
 
 @Component({
     selector: 'jhi-vehicle',
@@ -20,6 +21,7 @@ export class VehicleComponent implements OnInit, OnDestroy {
     insuranceDetails: InsuranceDetails;
     currentAccount: Account;
     eventSubscriber: Subscription;
+    isSaving : boolean;
 
     constructor(
         private vehicleService: VehicleService,
@@ -42,12 +44,6 @@ export class VehicleComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.principal.identity().then((account) => {
             this.currentAccount = account;
-            // this.driverService.query(this.currentAccount.login).subscribe(
-            //     (res: HttpResponse<Driver[]>) => {
-            //         this.drivers = res.body;
-            //     },
-            //     (res: HttpErrorResponse) => this.onError(res.message)
-            // );
             this.loadAll();
         });
         this.registerChangeInVehicles();
@@ -65,7 +61,9 @@ export class VehicleComponent implements OnInit, OnDestroy {
     }
 
     private onError(error) {
+        console.log("error");
         this.jhiAlertService.error(error.message, null, null);
+        console.log(error.message);
     }
     hasCar() {
         return this.vehicles.length>0;
@@ -73,14 +71,27 @@ export class VehicleComponent implements OnInit, OnDestroy {
 
     updateInsurance(level:number, selectVehicle:Vehicle): void{
         this.vehicle=selectVehicle;
-        //this.vehicle.insurancedetails
-        this.insuranceService.find(level).subscribe(
+        this.subscribeToFindResponse(this.insuranceService.find(level));
+    }
+    private subscribeToSaveResponse(result: Observable<HttpResponse<Vehicle>>) {
+        console.log("about to update");
+        result.subscribe(
             (res: HttpResponse<InsuranceDetails>) => {
-                this.insuranceDetails = res.body;
+            },
+            (res: HttpErrorResponse) => {console.log("catch that modafuka",res)}
+        );
+    }
+    private subscribeToFindResponse(result: Observable<HttpResponse<InsuranceDetails>>){
+        result.subscribe(
+            (res: HttpResponse<InsuranceDetails>) => {
+                console.log(this.vehicle.insurancedetails);
+                this.vehicle.insurancedetails = res.body;
+                console.log(res.body);
+                console.log("find");
+                this.subscribeToSaveResponse(this.vehicleService.update(this.vehicle));
+
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.vehicle.insurancedetails=this.insuranceDetails;
-        this.vehicleService.update(this.vehicle);
     }
 }

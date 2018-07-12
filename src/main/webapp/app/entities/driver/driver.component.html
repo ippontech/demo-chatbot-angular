@@ -65,7 +65,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let driver of drivers ;trackBy: trackId">
+                    <tr *ngFor="let driver of drivers ;trackBy: trackId" style="align-content: center">
                         <td>
                             <a [routerLink]="['../driver', driver.id ]">{{driver.id}}</a>
                         </td>

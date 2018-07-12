@@ -22,7 +22,9 @@ export class VehicleService {
     }
 
     update(vehicle: Vehicle): Observable<EntityResponseType> {
+        console.log("before teh copy");
         const copy = this.convert(vehicle);
+        console.log("We are going to update vehicle", vehicle);
         return this.http.put<Vehicle>(this.resourceUrl, copy, { observe: 'response' })
             .map((res: EntityResponseType) => this.convertResponse(res));
     }

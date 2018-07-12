@@ -25,8 +25,7 @@ export class DriverComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
-        console.log("load initialize");
-        console.log(this.currentAccount.login);
+        //console.log(this.currentAccount.login);
         this.driverService.query(this.currentAccount.login).subscribe(
             (res: HttpResponse<Driver[]>) => {
                 this.drivers = res.body;
