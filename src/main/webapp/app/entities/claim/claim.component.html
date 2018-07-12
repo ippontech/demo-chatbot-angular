@@ -1,10 +1,20 @@
-<div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1>
+            <span class="fa fa-archive"> 3. Your Active Claims</span>
+        </h1>
+    </div>
+    <div class="panel-body">
+        <span class="fa fa-search"></span>Displayed below are all of your currently pending claims
+        <span class="fa fa-search"></span>
+    </div>
+</div>
+<div class ="jumbotron">
     <h2>
-        <span>Claims</span>
         <button class="btn btn-primary float-right jh-create-entity create-claim" [routerLink]="['/', { outlets: { popup: ['claim-new'] } }]">
             <span class="fa fa-plus"></span>
             <span >
-            Create new Claim
+            Make a Claim
             </span>
         </button>
     </h2>
