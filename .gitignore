@@ -120,6 +120,7 @@ Desktop.ini
 # Logs
 ######################
 *.log*
+!/src/main/webapp/app/admin/logs
 
 ######################
 # Others
