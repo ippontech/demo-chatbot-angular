@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-driver-heading">Create or edit a Driver</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!driver.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="driver.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_userLogin">User Login</label>
+                    <input type="text" class="form-control" name="userLogin" id="field_userLogin"
+                        [(ngModel)]="driver.userLogin" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="driver.firstName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="driver.lastName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_birthDate">Birth Date</label>
+                    <div class="input-group">
+                        <input id="field_birthDate" type="text" class="form-control" name="birthDate" ngbDatepicker  #birthDateDp="ngbDatepicker" [(ngModel)]="driver.birthDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="birthDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_licenseDate">License Date</label>
+                    <div class="input-group">
+                        <input id="field_licenseDate" type="text" class="form-control" name="licenseDate" ngbDatepicker  #licenseDateDp="ngbDatepicker" [(ngModel)]="driver.licenseDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="licenseDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pastAccident">Past Accident</label>
+                    <input type="number" class="form-control" name="pastAccident" id="field_pastAccident"
+                        [(ngModel)]="driver.pastAccident" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_zipCode">Zip Code</label>
+                    <input type="number" class="form-control" name="zipCode" id="field_zipCode"
+                        [(ngModel)]="driver.zipCode" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
