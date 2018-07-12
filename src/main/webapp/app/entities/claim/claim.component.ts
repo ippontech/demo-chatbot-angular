@@ -54,4 +54,8 @@ claims: Claim[];
     private onError(error) {
         this.jhiAlertService.error(error.message, null, null);
     }
+
+    hasClaim() {
+        return this.claims.length>0;
+    }
 }
