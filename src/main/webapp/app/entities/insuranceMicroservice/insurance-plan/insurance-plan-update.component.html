@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-insurance-plan-heading">Create or edit a Insurance Plan</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!insurancePlan.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="insurancePlan.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="insurancePlan.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_summary">Summary</label>
+                    <input type="text" class="form-control" name="summary" id="field_summary"
+                        [(ngModel)]="insurancePlan.summary" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_yearlyPremium">Yearly Premium</label>
+                    <input type="number" class="form-control" name="yearlyPremium" id="field_yearlyPremium"
+                        [(ngModel)]="insurancePlan.yearlyPremium" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_deductable">Deductable</label>
+                    <input type="number" class="form-control" name="deductable" id="field_deductable"
+                        [(ngModel)]="insurancePlan.deductable" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_coveragePerPerson">Coverage Per Person</label>
+                    <input type="number" class="form-control" name="coveragePerPerson" id="field_coveragePerPerson"
+                        [(ngModel)]="insurancePlan.coveragePerPerson" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_coveragePerAccident">Coverage Per Accident</label>
+                    <input type="number" class="form-control" name="coveragePerAccident" id="field_coveragePerAccident"
+                        [(ngModel)]="insurancePlan.coveragePerAccident" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

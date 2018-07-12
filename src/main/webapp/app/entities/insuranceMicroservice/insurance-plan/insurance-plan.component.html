@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span>Insurance Plans</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-insurance-plan" [routerLink]="['/insurance-plan/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Insurance Plan
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="insurancePlans">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Summary</span></th>
+            <th><span>Yearly Premium</span></th>
+            <th><span>Deductable</span></th>
+            <th><span>Coverage Per Person</span></th>
+            <th><span>Coverage Per Accident</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let insurancePlan of insurancePlans ;trackBy: trackId">
+                <td><a [routerLink]="['/insurance-plan', insurancePlan.id, 'view' ]">{{insurancePlan.id}}</a></td>
+                <td>{{insurancePlan.name}}</td>
+                <td>{{insurancePlan.summary}}</td>
+                <td>{{insurancePlan.yearlyPremium}}</td>
+                <td>{{insurancePlan.deductable}}</td>
+                <td>{{insurancePlan.coveragePerPerson}}</td>
+                <td>{{insurancePlan.coveragePerAccident}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/insurance-plan', insurancePlan.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/insurance-plan', insurancePlan.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'insurance-plan/'+ insurancePlan.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
