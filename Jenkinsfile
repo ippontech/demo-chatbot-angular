@@ -42,8 +42,8 @@ node {
         }
     }
 
-    stage('package and deploy') {
-        sh "./mvnw com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.appName=polar-eyrie-33818"
+    stage('packaging') {
+        sh "./mvnw verify -Pprod -DskipTests"
         archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
     }
 
