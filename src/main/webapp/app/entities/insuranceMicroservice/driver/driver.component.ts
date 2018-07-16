@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { IDriver } from 'app/shared/model/insuranceMicroservice/driver.model';
-import { Principal } from 'app/core';
+import { Principal, Account } from 'app/core';
 import { DriverService } from './driver.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { DriverService } from './driver.service';
 })
 export class DriverComponent implements OnInit, OnDestroy {
     drivers: IDriver[];
-    currentAccount: any;
+    currentAccount: Account;
     eventSubscriber: Subscription;
 
     constructor(
@@ -54,5 +54,9 @@ export class DriverComponent implements OnInit, OnDestroy {
 
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    hasDriverProfile() {
+        return this.drivers.length > 0;
     }
 }

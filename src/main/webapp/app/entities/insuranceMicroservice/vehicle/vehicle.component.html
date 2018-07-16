@@ -1,70 +1,152 @@
-<div>
-    <h2 id="page-heading">
-        <span>Vehicles</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vehicle" [routerLink]="['/vehicle/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span >
-            Create new Vehicle
-            </span>
-        </button>
-    </h2>
-    <jhi-alert></jhi-alert>
-    <br/>
-    <div class="table-responsive" *ngIf="vehicles">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-            <th><span>ID</span></th>
-            <th><span>Make</span></th>
-            <th><span>Model</span></th>
-            <th><span>Year</span></th>
-            <th><span>Mileage</span></th>
-            <th><span>Vin</span></th>
-            <th><span>Insurance Id</span></th>
-            <th><span>Driver</span></th>
-            <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let vehicle of vehicles ;trackBy: trackId">
-                <td><a [routerLink]="['/vehicle', vehicle.id, 'view' ]">{{vehicle.id}}</a></td>
-                <td>{{vehicle.make}}</td>
-                <td>{{vehicle.model}}</td>
-                <td>{{vehicle.year}}</td>
-                <td>{{vehicle.mileage}}</td>
-                <td>{{vehicle.vin}}</td>
-                <td>{{vehicle.insuranceId}}</td>
-                <td>
-                    <div *ngIf="vehicle.driver">
-                        <a [routerLink]="['../driver', vehicle.driver?.id, 'view' ]" >{{vehicle.driver?.id}}</a>
-                    </div>
-                </td>
-                <td class="text-right">
-                    <div class="btn-group flex-btn-group-container">
-                        <button type="submit"
-                                [routerLink]="['/vehicle', vehicle.id, 'view' ]"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/vehicle', vehicle.id, 'edit']"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'vehicle/'+ vehicle.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline">Delete</span>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1>
+            <span class="fa fa-car"> 2. Your Car</span>
+        </h1>
+    </div>
+    <div class="panel-body">
+        <span class="fa fa-search"></span>We want to know everything about your car
+        <span class="fa fa-search"></span>
     </div>
 </div>
+<div *ngIf="vehicles" [ngSwitch]="hasCar()">
+    <div class="jumbotron" *ngSwitchCase="false">
+        <span>You don't have registered any car yet: </span>
+        <button class="btn btn-primary float-right jh-create-entity create-vehicle" [routerLink]="['/vehicle/new']">
+            <span class="fa fa-plus"></span>
+            <span>
+                Add a new car
+            </span>
+        </button>
+    </div>
+    <div class="jumbotron" *ngSwitchCase="true">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <button class="btn btn-primary float-right jh-create-entity create-vehicle" [routerLink]="['/vehicle/new']">
+                        <span class="fa fa-plus"></span>
+                        <span>
+                            Add a new car
+                        </span>
+                    </button>
+                    <tr>
+                        <th>
+                            <span>ID</span>
+                        </th>
+                        <th>
+                            <span>Make</span>
+                        </th>
+                        <th>
+                            <span>Model</span>
+                        </th>
+                        <th>
+                            <span>Year</span>
+                        </th>
+                        <th>
+                            <span>Mileage</span>
+                        </th>
+                        <th>
+                            <span>Vin</span>
+                        </th>
+                        <th>
+                            <span>Insurance</span>
+                        </th>
+                        <th>
+                            <span>Driver</span>
+                        </th>
+                        <th>Update your Insurance Plan</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vehicle of vehicles ;trackBy: trackId">
+                        <td>
+                            <a [routerLink]="['/vehicle', vehicle.id, 'view' ]">{{vehicle.id}}</a>
+                        </td>
+                        <td>{{vehicle.make}}</td>
+                        <td>{{vehicle.model}}</td>
+                        <td>{{vehicle.year}}</td>
+                        <td>{{vehicle.mileage}}</td>
+                        <td>{{vehicle.vin}}</td>
+                        <td>{{vehicle.insuranceId}}</td>
+                        <td>
+                            <div *ngIf="vehicle.driver">
+                                <a [routerLink]="['../driver', vehicle.driver?.id, 'view' ]">{{vehicle.driver.userLogin}}</a>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-md" (click)="updateInsurance(1,vehicle)">
+                                <span class="fa fa-frown-o"></span>
+                                <span class="d-none d-md-inline" [ngbPopover]="PopContentLow" triggers="mouseenter:mouseleave" popoverTitle="The Cheapest Insurance">Low</span>
+                            </button>
+                            <button class="btn btn-primary btn-md" (click)="updateInsurance(2,vehicle)">
+                                <span class="fa fa-meh"></span>
+                                <span class="d-none d-md-inline" [ngbPopover]="PopContentMiddle" triggers="mouseenter:mouseleave" popoverTitle="The Perfect Balance">Middle</span>
+                            </button>
+                            <button class="btn btn-success" (click)="updateInsurance(3,vehicle)">
+                                <span class="fa fa-smile"></span>
+                                <span class="d-none d-md-inline" [ngbPopover]="PopContentHigh" triggers="mouseenter:mouseleave" popoverTitle="The Rolls Royce">High</span>
+                            </button>
+                        </td>
+                        <td class="text-right" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                            <div class="btn-group flex-btn-group-container">
+                                <button type="submit" [routerLink]="['/vehicle', vehicle.id, 'view' ]" class="btn btn-info btn-sm">
+                                    <fa-icon [icon]="'eye'"></fa-icon>
+                                    <span class="d-none d-md-inline">View</span>
+                                </button>
+                                <button type="submit" [routerLink]="['/vehicle', vehicle.id, 'edit']" class="btn btn-primary btn-sm">
+                                    <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                    <span class="d-none d-md-inline">Edit</span>
+                                </button>
+                                <button type="submit" [routerLink]="['/', { outlets: { popup: 'vehicle/'+ vehicle.id + '/delete'} }]" replaceUrl="true" queryParamsHandling="merge"
+                                    class="btn btn-danger btn-sm">
+                                    <fa-icon [icon]="'times'"></fa-icon>
+                                    <span class="d-none d-md-inline">Delete</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-template #PopContentLow>
+    <b>Summary</b>:{{insurances[0].summary}}
+    <br>
+    <b>Yearly Premium</b>:{{insurances[0].yearlyPremium}}
+    <br>
+    <b>Deductable</b>:{{insurances[0].deductable}}
+    <br>
+    <b>Coverage Per Person</b>:{{insurances[0].coveragePerPerson}}
+    <br>
+    <b>Coverage Per Accident</b>:{{insurances[0].coveragePerAccident}}
+    <br>
+</ng-template>
+
+<ng-template #PopContentMiddle>
+    <b>Summary</b>: {{insurances[1].summary}}
+    <br>
+    <b>Yearly Premium</b>: {{insurances[1].yearlyPremium}}
+    <br>
+    <b>Deductable</b>: {{insurances[1].deductable}}
+    <br>
+    <b>Coverage Per Person</b>: {{insurances[1].coveragePerPerson}}
+    <br>
+    <b>Coverage Per Accident</b>: {{insurances[1].coveragePerAccident}}
+    <br>
+</ng-template>
+
+<ng-template #PopContentHigh>
+    <b>Summary</b>: {{insurances[2].summary}}
+    <br>
+    <b>Yearly Premium</b>: {{insurances[2].yearlyPremium}}
+    <br>
+    <b>Deductable</b>: {{insurances[2].deductable}}
+    <br>
+    <b>Coverage Per Person</b>: {{insurances[2].coveragePerPerson}}
+    <br>
+    <b>Coverage Per Accident</b>: {{insurances[2].coveragePerAccident}}
+    <br>
+</ng-template>

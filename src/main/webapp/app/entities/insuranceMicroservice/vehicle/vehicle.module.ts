@@ -16,6 +16,7 @@ const ENTITY_STATES = [...vehicleRoute, ...vehiclePopupRoute];
 
 @NgModule({
     imports: [GatewaySharedModule, RouterModule.forChild(ENTITY_STATES)],
+    exports: [VehicleComponent],
     declarations: [
         VehicleComponent,
         VehicleDetailComponent,

@@ -48,6 +48,7 @@ export class VehicleUpdateComponent implements OnInit {
         if (this.vehicle.id !== undefined) {
             this.subscribeToSaveResponse(this.vehicleService.update(this.vehicle));
         } else {
+            this.vehicle.driver = this.drivers[0];
             this.subscribeToSaveResponse(this.vehicleService.create(this.vehicle));
         }
     }

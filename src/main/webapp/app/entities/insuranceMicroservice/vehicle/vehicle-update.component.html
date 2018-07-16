@@ -34,19 +34,6 @@
                     <input type="text" class="form-control" name="vin" id="field_vin"
                         [(ngModel)]="vehicle.vin" />
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" for="field_insuranceId">Insurance Id</label>
-                    <input type="number" class="form-control" name="insuranceId" id="field_insuranceId"
-                        [(ngModel)]="vehicle.insuranceId" />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" for="field_driver">Driver</label>
-                    <select class="form-control" id="field_driver" name="driver" [(ngModel)]="vehicle.driver" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="driverOption.id === vehicle.driver?.id ? vehicle.driver : driverOption" *ngFor="let driverOption of drivers; trackBy: trackDriverById">{{driverOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

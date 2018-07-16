@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { IDriver } from 'app/shared/model/insuranceMicroservice/driver.model';
 import { DriverService } from './driver.service';
+import { Principal, Account } from 'app/core';
 
 @Component({
     selector: 'jhi-driver-update',
@@ -12,13 +13,17 @@ import { DriverService } from './driver.service';
 })
 export class DriverUpdateComponent implements OnInit {
     private _driver: IDriver;
+    account: Account;
     isSaving: boolean;
     birthDateDp: any;
     licenseDateDp: any;
 
-    constructor(private driverService: DriverService, private activatedRoute: ActivatedRoute) {}
+    constructor(private driverService: DriverService, private activatedRoute: ActivatedRoute, private principal: Principal) {}
 
     ngOnInit() {
+        this.principal.identity().then(account => {
+            this.account = account;
+        });
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ driver }) => {
             this.driver = driver;
@@ -34,6 +39,7 @@ export class DriverUpdateComponent implements OnInit {
         if (this.driver.id !== undefined) {
             this.subscribeToSaveResponse(this.driverService.update(this.driver));
         } else {
+            this.driver.userLogin = this.account.login;
             this.subscribeToSaveResponse(this.driverService.create(this.driver));
         }
     }

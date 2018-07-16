@@ -16,6 +16,7 @@ const ENTITY_STATES = [...driverRoute, ...driverPopupRoute];
 
 @NgModule({
     imports: [GatewaySharedModule, RouterModule.forChild(ENTITY_STATES)],
+    exports: [DriverComponent],
     declarations: [DriverComponent, DriverDetailComponent, DriverUpdateComponent, DriverDeleteDialogComponent, DriverDeletePopupComponent],
     entryComponents: [DriverComponent, DriverUpdateComponent, DriverDeleteDialogComponent, DriverDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
