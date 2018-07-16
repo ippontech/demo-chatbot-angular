@@ -39,7 +39,9 @@ export class DriverUpdateComponent implements OnInit {
         if (this.driver.id !== undefined) {
             this.subscribeToSaveResponse(this.driverService.update(this.driver));
         } else {
-            this.driver.userLogin = this.account.login;
+            if (this.account) {
+                this.driver.userLogin = this.account.login;
+            }
             this.subscribeToSaveResponse(this.driverService.create(this.driver));
         }
     }
