@@ -16,6 +16,7 @@ const ENTITY_STATES = [...claimRoute, ...claimPopupRoute];
 
 @NgModule({
     imports: [GatewaySharedModule, RouterModule.forChild(ENTITY_STATES)],
+    exports: [ClaimComponent],
     declarations: [ClaimComponent, ClaimDetailComponent, ClaimUpdateComponent, ClaimDeleteDialogComponent, ClaimDeletePopupComponent],
     entryComponents: [ClaimComponent, ClaimUpdateComponent, ClaimDeleteDialogComponent, ClaimDeletePopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

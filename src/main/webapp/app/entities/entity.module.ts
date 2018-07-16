@@ -15,7 +15,7 @@ import { GatewayClaimModule as InsuranceMicroserviceClaimModule } from './insura
         InsuranceMicroserviceClaimModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
-    exports: [InsuranceMicroserviceDriverModule, InsuranceMicroserviceVehicleModule],
+    exports: [InsuranceMicroserviceDriverModule, InsuranceMicroserviceVehicleModule, InsuranceMicroserviceClaimModule],
     declarations: [],
     entryComponents: [],
     providers: [],
