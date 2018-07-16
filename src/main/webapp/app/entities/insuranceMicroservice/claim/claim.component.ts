@@ -55,4 +55,8 @@ export class ClaimComponent implements OnInit, OnDestroy {
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
     }
+
+    hasClaims() {
+        return this.claims.length > 0;
+    }
 }
