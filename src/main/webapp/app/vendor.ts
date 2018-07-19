@@ -1,6 +1,7 @@
 /* after changing this file run 'yarn run webpack:build' */
 /* tslint:disable */
 import '../content/scss/vendor.scss';
+import '../content/scss/global.scss';
 
 // Imports all fontawesome core and solid icons
 
@@ -37,10 +38,16 @@ import {
     faTrashAlt,
     faAsterisk,
     faTasks,
-    faHome
+    faHome,
+    faFrown,
+    faMeh,
+    faSmile
 } from '@fortawesome/free-solid-svg-icons';
 
 // Adds the SVG icon to the library so you can use it in your page
+library.add(faMeh);
+library.add(faFrown);
+library.add(faSmile);
 library.add(faUser);
 library.add(faSort);
 library.add(faSync);

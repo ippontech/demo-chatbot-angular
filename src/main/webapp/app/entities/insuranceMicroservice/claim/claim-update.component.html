@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_accidentTime">Accident Time</label>
                     <div class="d-flex">
-                        <input id="field_accidentTime" type="datetime-local" class="form-control" name="accidentTime" [(ngModel)]="accidentTime"
+                        <input id="field_accidentTime" type="time" class="form-control" name="accidentTime" [(ngModel)]="accidentTime"
                         />
                     </div>
                 </div>
@@ -50,14 +50,6 @@
                     <label class="form-control-label" for="field_damageDescription">Damage Description</label>
                     <input type="text" class="form-control" name="damageDescription" id="field_damageDescription"
                         [(ngModel)]="claim.damageDescription" />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" for="field_vehicle">Vehicle</label>
-                    <select class="form-control" id="field_vehicle" name="vehicle" [(ngModel)]="claim.vehicle" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="vehicleOption.id === claim.vehicle?.id ? claim.vehicle : vehicleOption" *ngFor="let vehicleOption of vehicles; trackBy: trackVehicleById">{{vehicleOption.make}} {{vehicleOption.model}}</option>
-                    </select>
                 </div>
             </div>
             <div>

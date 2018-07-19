@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col-md-3">
-        <span class="hipster img-fluid rounded"></span>
+        <span class="geico img-fluid rounded"></span>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-4">
         <h1 class="display-4">Ippon Insurance</h1>
 
         <div [ngSwitch]="isAuthenticated()">
             <div class="alert alert-success" *ngSwitchCase="true">
-                <span *ngIf="account"> Yea! You are logged in as : "{{account.login}}". </span>
+                <span *ngIf="account"> Yeah! You are logged in as : "{{account.login}}". </span>
             </div>
             <div class="alert alert-warning" *ngSwitchCase="false">
                 <span>You don't have an account yet?</span>
@@ -25,9 +25,6 @@
             </div>
             <div class="row">
                 <jhi-vehicle></jhi-vehicle>
-            </div>
-            <div class="row">
-                <jhi-claim></jhi-claim>
             </div>
         </div>
     </div>
