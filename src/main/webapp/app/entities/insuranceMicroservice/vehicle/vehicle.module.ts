@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { GatewaySharedModule } from 'app/shared';
+import { GatewayClaimModule as InsuranceMicroserviceClaimModule } from '../claim/claim.module';
 import {
     VehicleComponent,
     VehicleDetailComponent,
@@ -15,7 +16,7 @@ import {
 const ENTITY_STATES = [...vehicleRoute, ...vehiclePopupRoute];
 
 @NgModule({
-    imports: [GatewaySharedModule, RouterModule.forChild(ENTITY_STATES)],
+    imports: [InsuranceMicroserviceClaimModule, GatewaySharedModule, RouterModule.forChild(ENTITY_STATES)],
     exports: [VehicleComponent],
     declarations: [
         VehicleComponent,

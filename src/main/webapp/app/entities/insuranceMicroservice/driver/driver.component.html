@@ -5,16 +5,15 @@
         </h1>
     </div>
     <div class="panel-body">
-        <span class="fa fa-search"></span>We want to know everything about your driving history
-        <span class="fa fa-search"></span>
+        <fa-icon [icon]="'search'"></fa-icon>We want to know everything about your driving history
+        <fa-icon [icon]="'search'"></fa-icon>
     </div>
 </div>
 <div *ngIf="drivers" [ngSwitch]="hasDriverProfile()">
     <div class="jumbotron" *ngSwitchCase="false">
-
         <span>You don't have a driver profile currently: </span>
         <button class="btn btn-primary float-right jh-create-entity create-driver" [routerLink]="['/driver/new']">
-            <span class="fa fa-plus"></span>
+            <fa-icon [icon]="'plus'"></fa-icon>
             <span>
                 Create new Driver
             </span>

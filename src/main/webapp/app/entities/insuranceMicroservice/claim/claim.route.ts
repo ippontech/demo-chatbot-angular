@@ -11,6 +11,8 @@ import { ClaimDetailComponent } from './claim-detail.component';
 import { ClaimUpdateComponent } from './claim-update.component';
 import { ClaimDeletePopupComponent } from './claim-delete-dialog.component';
 import { IClaim } from 'app/shared/model/insuranceMicroservice/claim.model';
+import { IVehicle, Vehicle } from 'app/shared/model/insuranceMicroservice/vehicle.model';
+import { VehicleService } from 'app/entities/insuranceMicroservice/vehicle';
 
 @Injectable({ providedIn: 'root' })
 export class ClaimResolve implements Resolve<IClaim> {
@@ -22,6 +24,18 @@ export class ClaimResolve implements Resolve<IClaim> {
             return this.service.find(id).pipe(map((claim: HttpResponse<Claim>) => claim.body));
         }
         return of(new Claim());
+    }
+}
+@Injectable({ providedIn: 'root' })
+export class VehicleResolve implements Resolve<IVehicle> {
+    constructor(private service: VehicleService) {}
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        const id = route.params['vehicleId'] ? route.params['vehicleId'] : null;
+        console.log('Vehicle Id about to be store in claim:', id);
+        if (id) {
+            return this.service.find(id).pipe(map((vehicle: HttpResponse<Vehicle>) => vehicle.body));
+        }
     }
 }
 
@@ -48,10 +62,11 @@ export const claimRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
-        path: 'claim/new',
+        path: 'claim/:vehicleId/new',
         component: ClaimUpdateComponent,
         resolve: {
-            claim: ClaimResolve
+            claim: ClaimResolve,
+            vehicle: VehicleResolve
         },
         data: {
             authorities: ['ROLE_USER'],

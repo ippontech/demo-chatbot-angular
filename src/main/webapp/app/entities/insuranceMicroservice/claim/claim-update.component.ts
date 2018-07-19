@@ -9,7 +9,6 @@ import { JhiAlertService } from 'ng-jhipster';
 import { IClaim } from 'app/shared/model/insuranceMicroservice/claim.model';
 import { ClaimService } from './claim.service';
 import { IVehicle } from 'app/shared/model/insuranceMicroservice/vehicle.model';
-import { VehicleService } from 'app/entities/insuranceMicroservice/vehicle';
 
 @Component({
     selector: 'jhi-claim-update',
@@ -18,29 +17,19 @@ import { VehicleService } from 'app/entities/insuranceMicroservice/vehicle';
 export class ClaimUpdateComponent implements OnInit {
     private _claim: IClaim;
     isSaving: boolean;
-
-    vehicles: IVehicle[];
     accidentDateDp: any;
     accidentTime: string;
+    vehicle: IVehicle;
 
-    constructor(
-        private jhiAlertService: JhiAlertService,
-        private claimService: ClaimService,
-        private vehicleService: VehicleService,
-        private activatedRoute: ActivatedRoute
-    ) {}
+    constructor(private jhiAlertService: JhiAlertService, private claimService: ClaimService, private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
-        this.activatedRoute.data.subscribe(({ claim }) => {
+        this.activatedRoute.data.subscribe(({ claim, vehicle }) => {
             this.claim = claim;
+            this.vehicle = vehicle;
         });
-        this.vehicleService.query().subscribe(
-            (res: HttpResponse<IVehicle[]>) => {
-                this.vehicles = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
+        console.log(this.claim);
     }
 
     previousState() {
@@ -49,10 +38,11 @@ export class ClaimUpdateComponent implements OnInit {
 
     save() {
         this.isSaving = true;
-        this.claim.accidentTime = moment(this.accidentTime, DATE_TIME_FORMAT);
+        this.claim.accidentTime = moment(this.accidentTime, 'hh:mm a');
         if (this.claim.id !== undefined) {
             this.subscribeToSaveResponse(this.claimService.update(this.claim));
         } else {
+            this.claim.vehicle = this.vehicle;
             this.subscribeToSaveResponse(this.claimService.create(this.claim));
         }
     }
@@ -83,6 +73,6 @@ export class ClaimUpdateComponent implements OnInit {
 
     set claim(claim: IClaim) {
         this._claim = claim;
-        this.accidentTime = moment(claim.accidentTime).format(DATE_TIME_FORMAT);
+        this.accidentTime = moment(claim.accidentTime).format('hh:mm a');
     }
 }

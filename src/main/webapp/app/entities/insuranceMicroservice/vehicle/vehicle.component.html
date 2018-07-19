@@ -5,15 +5,15 @@
         </h1>
     </div>
     <div class="panel-body">
-        <span class="fa fa-search"></span>We want to know everything about your car
-        <span class="fa fa-search"></span>
+        <fa-icon [icon]="'search'"></fa-icon>We want to know everything about your car
+        <fa-icon [icon]="'search'"></fa-icon>
     </div>
 </div>
 <div *ngIf="vehicles" [ngSwitch]="hasCar()">
     <div class="jumbotron" *ngSwitchCase="false">
         <span>You don't have registered any car yet: </span>
         <button class="btn btn-primary float-right jh-create-entity create-vehicle" [routerLink]="['/vehicle/new']">
-            <span class="fa fa-plus"></span>
+            <fa-icon [icon]="'plus'"></fa-icon>
             <span>
                 Add a new car
             </span>
@@ -24,7 +24,7 @@
             <table class="table table-striped">
                 <thead>
                     <button class="btn btn-primary float-right jh-create-entity create-vehicle" [routerLink]="['/vehicle/new']">
-                        <span class="fa fa-plus"></span>
+                        <fa-icon [icon]="'plus'"></fa-icon>
                         <span>
                             Add a new car
                         </span>
@@ -54,15 +54,14 @@
                         <th>
                             <span>Driver</span>
                         </th>
+                        <th>File a Claim</th>
                         <th>Update your Insurance Plan</th>
-                        <th></th>
+                        <th *jhiHasAnyAuthority="'ROLE_ADMIN'"> Admin Rights</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let vehicle of vehicles ;trackBy: trackId">
-                        <td>
-                            <a [routerLink]="['/vehicle', vehicle.id, 'view' ]">{{vehicle.id}}</a>
-                        </td>
+                        <td>{{vehicle.id}}</td>
                         <td>{{vehicle.make}}</td>
                         <td>{{vehicle.model}}</td>
                         <td>{{vehicle.year}}</td>
@@ -75,16 +74,21 @@
                             </div>
                         </td>
                         <td>
-                            <button class="btn btn-danger btn-md" (click)="updateInsurance(1,vehicle)">
-                                <span class="fa fa-frown-o"></span>
+                            <button class="btn btn-default btn-md" (click)="makeAClaim(vehicle)">
+                                <span class="d-none d-md-inline">Claim History</span>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-md" (click)="updateInsurance(1, vehicle)">
+                                    <fa-icon [icon]="'frown'"></fa-icon>
                                 <span class="d-none d-md-inline" [ngbPopover]="PopContentLow" triggers="mouseenter:mouseleave" popoverTitle="The Cheapest Insurance">Low</span>
                             </button>
-                            <button class="btn btn-primary btn-md" (click)="updateInsurance(2,vehicle)">
-                                <span class="fa fa-meh"></span>
+                            <button class="btn btn-primary btn-md" (click)="updateInsurance(2, vehicle)">
+                                <fa-icon [icon]="'meh'"></fa-icon>
                                 <span class="d-none d-md-inline" [ngbPopover]="PopContentMiddle" triggers="mouseenter:mouseleave" popoverTitle="The Perfect Balance">Middle</span>
                             </button>
-                            <button class="btn btn-success" (click)="updateInsurance(3,vehicle)">
-                                <span class="fa fa-smile"></span>
+                            <button class="btn btn-success" (click)="updateInsurance(3, vehicle)">
+                                    <fa-icon [icon]="'smile'"></fa-icon>
                                 <span class="d-none d-md-inline" [ngbPopover]="PopContentHigh" triggers="mouseenter:mouseleave" popoverTitle="The Rolls Royce">High</span>
                             </button>
                         </td>
@@ -111,6 +115,15 @@
         </div>
     </div>
 </div>
+<div *ngIf="claimVehicle">
+        <div class="col-md-4 offset-md-5">
+            <button class="btn btn-outline-dark btn-lg" (click)="clearHistory()">Clear Claim's History</button>
+        </div>
+    <jhi-claim [selectVehicle]="claimVehicle"></jhi-claim>
+</div>
+<!-- <on-changes [selectVehicle]="claimVehicle">
+        <jhi-claim [selectVehicle]="claimVehicle"></jhi-claim>
+</on-changes> -->
 
 <ng-template #PopContentLow>
     <b>Summary</b>:{{insurances[0].summary}}

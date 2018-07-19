@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, SimpleChanges } from '@angular/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Subscription, Observable } from 'rxjs';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
@@ -19,6 +19,7 @@ export class VehicleComponent implements OnInit, OnDestroy {
     insurances: IInsurancePlan[];
     currentAccount: any;
     eventSubscriber: Subscription;
+    claimVehicle: IVehicle;
 
     constructor(
         private vehicleService: VehicleService,
@@ -71,7 +72,7 @@ export class VehicleComponent implements OnInit, OnDestroy {
     }
 
     hasCar() {
-        console.log('OH my, one more call', this.vehicles.length);
+        //console.log('OH my, one more call', this.vehicles.length);
         return this.vehicles.length > 0;
     }
 
@@ -81,12 +82,21 @@ export class VehicleComponent implements OnInit, OnDestroy {
         this.subscribeToSaveResponse(this.vehicleService.update(this.vehicle));
     }
     private subscribeToSaveResponse(result: Observable<HttpResponse<Vehicle>>) {
-        console.log('about to update');
+        //console.log('about to update');
         result.subscribe(
             (res: HttpResponse<Vehicle>) => {},
             (res: HttpErrorResponse) => {
-                console.log('catch that modafuka', res);
+                console.log('error to save response:', res);
             }
         );
+    }
+
+    makeAClaim(claimVehicle: IVehicle): void {
+        this.claimVehicle = claimVehicle;
+        console.log(this.claimVehicle);
+    }
+
+    clearHistory(): void {
+        this.claimVehicle = undefined;
     }
 }
