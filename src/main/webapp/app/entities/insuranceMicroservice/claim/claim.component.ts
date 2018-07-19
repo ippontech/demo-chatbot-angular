@@ -16,32 +16,38 @@ import { Router } from '@angular/router';
 })
 export class ClaimComponent implements OnInit, OnDestroy {
     claims: IClaim[];
-    vehicle: IVehicle;
     currentAccount: any;
     eventSubscriber: Subscription;
 
-    @Input() selectVehicle: IVehicle;
+    @Input() vehicle: IVehicle;
 
     constructor(
         private claimService: ClaimService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
-        private principal: Principal,
-        private router: Router
+        private principal: Principal
     ) {}
 
     loadAll() {
-        this.claimService.query(this.selectVehicle.id).subscribe(
-            (res: HttpResponse<IClaim[]>) => {
-                this.claims = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
+        if (this.vehicle) {
+            this.claimService.query(this.vehicle.id).subscribe(
+                (res: HttpResponse<IClaim[]>) => {
+                    this.claims = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+        } else {
+            this.claimService.query().subscribe(
+                (res: HttpResponse<IClaim[]>) => {
+                    this.claims = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+        }
     }
 
     ngOnInit() {
         // console.log(this.selectVehicle);
-        this.vehicle = this.selectVehicle;
         this.loadAll();
         this.principal.identity().then(account => {
             this.currentAccount = account;
