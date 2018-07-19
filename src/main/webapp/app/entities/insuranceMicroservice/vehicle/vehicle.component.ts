@@ -72,7 +72,7 @@ export class VehicleComponent implements OnInit, OnDestroy {
     }
 
     hasCar() {
-        //console.log('OH my, one more call', this.vehicles.length);
+        // console.log('OH my, one more call', this.vehicles.length);
         return this.vehicles.length > 0;
     }
 
@@ -82,7 +82,7 @@ export class VehicleComponent implements OnInit, OnDestroy {
         this.subscribeToSaveResponse(this.vehicleService.update(this.vehicle));
     }
     private subscribeToSaveResponse(result: Observable<HttpResponse<Vehicle>>) {
-        //console.log('about to update');
+        // console.log('about to update');
         result.subscribe(
             (res: HttpResponse<Vehicle>) => {},
             (res: HttpErrorResponse) => {

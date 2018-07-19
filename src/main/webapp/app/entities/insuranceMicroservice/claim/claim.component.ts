@@ -40,7 +40,7 @@ export class ClaimComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        //console.log(this.selectVehicle);
+        // console.log(this.selectVehicle);
         this.vehicle = this.selectVehicle;
         this.loadAll();
         this.principal.identity().then(account => {
@@ -66,7 +66,7 @@ export class ClaimComponent implements OnInit, OnDestroy {
     }
 
     hasClaims() {
-        //console.log("#claims= ", this.claims.length);
+        // console.log("#claims= ", this.claims.length);
         return this.claims.length > 0;
     }
 }
