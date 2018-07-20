@@ -48,7 +48,7 @@ node {
     }
 
     stage('upload package to instance') {
-        sh "scp -i **/target/*.war ec2-user@ec2-34-238-43-171.compute-1.amazonaws.com:~/app/gateway/
+        sh "scp -i **/target/*.war ec2-user@ec2-34-238-43-171.compute-1.amazonaws.com:~/app/gateway"
     }
 
 }
