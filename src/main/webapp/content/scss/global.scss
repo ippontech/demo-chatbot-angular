@@ -229,3 +229,16 @@ ui bootstrap tweaks
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+td {
+    text-align: center;
+    .small {
+        width: 2%;
+    }
+}
+
+th {
+    text-align: center;
+    .small {
+        size: 8px;
+    }
+}

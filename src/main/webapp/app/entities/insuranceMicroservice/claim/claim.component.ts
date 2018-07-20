@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
@@ -6,6 +6,9 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { IClaim } from 'app/shared/model/insuranceMicroservice/claim.model';
 import { Principal } from 'app/core';
 import { ClaimService } from './claim.service';
+import { IVehicle } from 'app/shared/model/insuranceMicroservice/vehicle.model';
+
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'jhi-claim',
@@ -16,6 +19,8 @@ export class ClaimComponent implements OnInit, OnDestroy {
     currentAccount: any;
     eventSubscriber: Subscription;
 
+    @Input() vehicle: IVehicle;
+
     constructor(
         private claimService: ClaimService,
         private jhiAlertService: JhiAlertService,
@@ -24,15 +29,25 @@ export class ClaimComponent implements OnInit, OnDestroy {
     ) {}
 
     loadAll() {
-        this.claimService.query().subscribe(
-            (res: HttpResponse<IClaim[]>) => {
-                this.claims = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
+        if (this.vehicle) {
+            this.claimService.query(this.vehicle.id).subscribe(
+                (res: HttpResponse<IClaim[]>) => {
+                    this.claims = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+        } else {
+            this.claimService.query().subscribe(
+                (res: HttpResponse<IClaim[]>) => {
+                    this.claims = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+        }
     }
 
     ngOnInit() {
+        // console.log(this.selectVehicle);
         this.loadAll();
         this.principal.identity().then(account => {
             this.currentAccount = account;
@@ -57,6 +72,7 @@ export class ClaimComponent implements OnInit, OnDestroy {
     }
 
     hasClaims() {
+        // console.log("#claims= ", this.claims.length);
         return this.claims.length > 0;
     }
 }

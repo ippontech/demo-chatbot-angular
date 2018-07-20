@@ -38,10 +38,16 @@ export class ClaimService {
             .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
     }
 
-    query(req?: any): Observable<EntityArrayResponseType> {
+    query(vehicleId?: number, req?: any): Observable<EntityArrayResponseType> {
         const options = createRequestOption(req);
+        if (!vehicleId) {
+            return this.http
+                .get<IClaim[]>(`${this.resourceUrl}`, { params: options, observe: 'response' })
+                .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+        }
+        console.log("it's number ", vehicleId);
         return this.http
-            .get<IClaim[]>(this.resourceUrl, { params: options, observe: 'response' })
+            .get<IClaim[]>(`${this.resourceUrl}/byVehicle/${vehicleId}`, { params: options, observe: 'response' })
             .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
     }
 
