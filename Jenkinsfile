@@ -47,4 +47,16 @@ node {
         archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
     }
 
+    stage('upload package to instance 2') {
+        sh "ssh -i 'gateway.pem' ec2-user@ec2-35-174-136-82.compute-1.amazonaws.com sudo service gateway stop"
+        sh "scp -i 'gateway.pem' ../Gateway/target/gateway-0.0.1-SNAPSHOT.war ec2-user@ec2-35-174-136-82.compute-1.amazonaws.com:/home/ec2-user/app/gateway/"
+        sh "ssh -i 'gateway.pem' ec2-user@ec2-35-174-136-82.compute-1.amazonaws.com sudo service gateway start"
+    }
+
+    stage('upload package to instance 1') {
+        sh "ssh -i 'gateway.pem' ec2-user@ec2-54-172-53-119.compute-1.amazonaws.com sudo service gateway stop"
+        sh "scp -i 'gateway.pem' ../Gateway/target/gateway-0.0.1-SNAPSHOT.war ec2-user@ec2-54-172-53-119.compute-1.amazonaws.com:/home/ec2-user/app/gateway/"
+        sh "ssh -i 'gateway.pem' ec2-user@ec2-54-172-53-119.compute-1.amazonaws.com sudo service gateway start"
+    }
+
 }
