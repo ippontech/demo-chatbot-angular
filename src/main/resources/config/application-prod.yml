@@ -36,7 +36,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://intern2018-chatbot.cewfon7xqsuk.us-east-1.rds.amazonaws.com:3306/gateway?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: gateway_user
-        password: rva-gateway
+        password: '{cipher}2ed5a70d2656f3fb33546e3d291f249f767822da5657d27807fe2536b90d10a2'
         hikari:
             data-source-properties:
                 cachePrepStmts: true
