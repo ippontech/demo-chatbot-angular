@@ -48,7 +48,9 @@ node {
     }
 
     stage('upload package to instance') {
-        sh "scp -i gateway.pem ec2-user@ec2-34-238-43-171.compute-1.amazonaws.com:~/app/gateway"
+        sh "ssh -i 'gateway.pem' ec2-user@ec2-35-174-136-82.compute-1.amazonaws.com sudo service gateway stop"
+        sh "scp -i 'gateway.pem' ../Gateway/target/gateway-0.0.1-SNAPSHOT.war ec2-user@ec2-35-174-136-82.compute-1.amazonaws.com:/home/ec2-user/app/gateway/"
+        sh "ssh -i 'gateway.pem' ec2-user@ec2-35-174-136-82.compute-1.amazonaws.com sudo service gateway start"
     }
 
 }
